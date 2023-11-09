@@ -1,9 +1,10 @@
 {
   "name": "my-book",
-  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "homepage": "https://lordponchik.github.io/my-book",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /my-book/"
   },
   "dependencies": {
     "parcel": "^2.10.2"
