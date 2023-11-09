@@ -12,6 +12,8 @@
     "parcel": "^2.10.2"
   },
   "devDependencies": {
-    "gh-pages": "^6.0.0"
+    "gh-pages": "^6.0.0",
+    "modern-normalize": "^2.0.0",
+    "sass": "^1.69.5"
   }
 }
