@@ -1,0 +1,49 @@
+.header {
+  padding-top: 45px;
+  padding-bottom: 45px;
+
+  background-color: $accent-background-color;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  text-transform: uppercase;
+
+  &__1 {
+    font-family: $secondary-font-family;
+    font-size: 25px;
+    color: $accent-color;
+  }
+  &__2 {
+    color: $secondary-text-color;
+  }
+}
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+.site-nav__item {
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+}
+.site-nav__link {
+  color: $secondary-text-color;
+  text-transform: uppercase;
+
+  &--active {
+    color: $accent-color;
+  }
+}
+
+.thema {
+  width: 30px;
+  height: 30px;
+
+  border-style: none;
+  cursor: pointer;
+  background-color: $accent-color;
+}
