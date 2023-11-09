@@ -4,9 +4,14 @@
   "homepage": "https://lordponchik.github.io/my-book",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /my-book/"
+    "build": "parcel build src/*.html --public-url /my-book/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "parcel": "^2.10.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
