@@ -3,8 +3,8 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "homepage": "https://lordponchik.github.io/my-book",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/*.html --public-url /my-book/",
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /my-book/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
