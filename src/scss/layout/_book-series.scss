@@ -16,6 +16,9 @@
     color: $accent-color;
     text-shadow: 2px 1px 1px $secondary-text-color;
   }
+  &--article::first-letter {
+    font-size: 60px;
+  }
 }
 .book-series__list {
   display: flex;

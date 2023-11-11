@@ -2,9 +2,13 @@ import { fetchBooks } from './booksAPI';
 import svg from '../image/no-image-placeholder.svg';
 
 const potterEl = document.querySelector('.potter');
+const icefireEl = document.querySelector('.icefire');
 
 fetchBooks('harry+potter').then(items => {
-  potterEl.innerHTML = renderPotter(items);
+  potterEl.innerHTML = renderBooks(items);
+});
+fetchBooks('a+song+of+ice+and+fire').then(items => {
+  icefireEl.innerHTML = renderBooks(items);
 });
 
 function thumbnail({ imageLinks }) {
@@ -32,7 +36,7 @@ function isDate(date) {
   return date;
 }
 
-function renderPotter(books) {
+function renderBooks(books) {
   return books
     .map(({ volumeInfo }) => {
       return `<li class="book-series__item">
