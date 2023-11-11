@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6, ul, p {
 
 body {
   color: #0000007a;
-  background-color: #fff;
+  background-color: #f5ffff;
   font-family: Poppins, sans-serif;
   font-size: 20px;
   font-weight: 500;
@@ -154,9 +154,10 @@ img {
 }
 
 .header {
-  background-color: #f5ffff;
-  padding-top: 45px;
-  padding-bottom: 45px;
+  background-color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  box-shadow: inset 0 -5px 5px -5px #223c5099;
 }
 
 .nav {
@@ -232,6 +233,342 @@ img {
 .hero__text {
   text-transform: capitalize;
   line-height: 1.2;
+}
+
+.book-series {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.book-series__title {
+  color: #292929;
+  background-color: #f5ffff;
+  margin-bottom: 20px;
+  font-family: Righteous, sans-serif;
+  font-size: 40px;
+  display: inline-flex;
+}
+
+.book-series__title--word:first-letter {
+  color: #fb635d;
+  text-shadow: 2px 1px 1px #292929;
+  font-size: 60px;
+}
+
+.book-series__title--article:first-letter {
+  font-size: 60px;
+}
+
+.book-series__list {
+  z-index: 100;
+  background-color: #fff;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 25px 20px;
+  display: flex;
+  position: relative;
+  box-shadow: -5px -5px 5px -5px #223c5099;
+}
+
+.book-series__item {
+  align-items: center;
+  width: calc(50% - 30px);
+  display: flex;
+}
+
+.book-series__img {
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  height: 250px;
+  margin-right: 20px;
+  display: flex;
+}
+
+.book-series__name {
+  color: #292929;
+  margin-bottom: 10px;
+}
+
+.book-series__name:first-letter {
+  color: #fb635d;
+  font-size: 35px;
+}
+
+.book-series__author {
+  color: #fb635d;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.potter {
+  position: relative;
+}
+
+.potter:before {
+  content: "";
+  opacity: 1;
+  background-image: url("boy-on-book.2ca2360e.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 150px;
+  height: 150px;
+  animation: 6s cubic-bezier(.455, .03, .515, .955) infinite animBoyFlight;
+  position: absolute;
+  top: -160px;
+  right: 50%;
+  transform: translate(0);
+}
+
+.ice {
+  position: relative;
+}
+
+.ice:before {
+  content: "";
+  background-image: url("ice.5e5dc137.svg");
+  background-repeat: no-repeat;
+  background-size: 80px;
+  width: 80px;
+  height: 80px;
+  animation: 2.1s infinite both bounce-in-top;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(0);
+}
+
+.fire {
+  position: relative;
+}
+
+.fire:before {
+  content: "";
+  z-index: 1;
+  opacity: .8;
+  background-image: url("fire.880e3147.svg");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  width: 100px;
+  height: 80px;
+  animation: 2s linear infinite both flicker-in-1;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+}
+
+@keyframes animBoyFlight {
+  0% {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(75%, 20%);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translate(150%, -20%);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate(225%, 20%);
+  }
+
+  80% {
+    opacity: .8;
+    transform: translate(250%, -20%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(800%);
+  }
+}
+
+@keyframes bounce-in-top {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+    transform: translateY(-100%);
+  }
+
+  38% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+
+  55% {
+    animation-timing-function: ease-in;
+    transform: translateY(-50%);
+  }
+
+  72% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+
+  81% {
+    animation-timing-function: ease-in;
+    transform: translateY(-30%);
+  }
+
+  90% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+
+  95% {
+    animation-timing-function: ease-in;
+    transform: translateY(-20%);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flicker-in-1 {
+  0% {
+    opacity: .8;
+  }
+
+  10% {
+    opacity: .8;
+  }
+
+  10.1% {
+    opacity: 1;
+  }
+
+  10.2% {
+    opacity: .8;
+  }
+
+  20% {
+    opacity: .8;
+  }
+
+  20.1% {
+    opacity: 1;
+  }
+
+  20.6% {
+    opacity: .8;
+  }
+
+  30% {
+    opacity: .8;
+  }
+
+  30.1% {
+    opacity: 1;
+  }
+
+  30.5% {
+    opacity: 1;
+  }
+
+  30.6% {
+    opacity: .8;
+  }
+
+  45% {
+    opacity: .8;
+  }
+
+  45.1% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  55% {
+    opacity: 1;
+  }
+
+  55.1% {
+    opacity: .8;
+  }
+
+  57% {
+    opacity: .8;
+  }
+
+  57.1% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  60.1% {
+    opacity: .8;
+  }
+
+  65% {
+    opacity: .8;
+  }
+
+  65.1% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  75.1% {
+    opacity: .8;
+  }
+
+  77% {
+    opacity: .8;
+  }
+
+  77.1% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  85.1% {
+    opacity: .8;
+  }
+
+  86% {
+    opacity: .8;
+  }
+
+  86.1% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.footer {
+  background-color: #fff;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  box-shadow: 0 -5px 5px -5px #223c5099;
+}
+
+.footer__container {
+  text-align: center;
 }
 
 /*# sourceMappingURL=index.da533f7e.css.map */
