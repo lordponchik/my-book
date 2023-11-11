@@ -4,6 +4,7 @@ import svg from '../image/no-image-placeholder.svg';
 const potterEl = document.querySelector('.potter');
 const icefireEl = document.querySelector('.icefire');
 const witcherEl = document.querySelector('.witcher');
+const darkTowerEl = document.querySelector('.dark-tower');
 
 fetchBooks('harry+potter').then(items => {
   potterEl.innerHTML = renderBooks(items);
@@ -13,6 +14,9 @@ fetchBooks('a+song+of+ice+and+fire').then(items => {
 });
 fetchBooks('the+witcher').then(items => {
   witcherEl.innerHTML = renderBooks(items);
+});
+fetchBooks('the+dark+tower').then(items => {
+  darkTowerEl.innerHTML = renderBooks(items);
 });
 
 function thumbnail({ imageLinks }) {
