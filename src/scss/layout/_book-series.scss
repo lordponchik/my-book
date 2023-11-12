@@ -117,11 +117,12 @@
     height: 80px;
     background-size: 100px;
     opacity: 0.8;
+    transform: scale(0.8);
 
     background-image: url(../image/fire.svg);
     background-repeat: no-repeat;
 
-    animation: flicker-in-1 2s linear both infinite;
+    animation: flicker-in-1 3s linear both infinite;
   }
 }
 
@@ -190,95 +191,126 @@
 @keyframes flicker-in-1 {
   0% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   10% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   10.1% {
     opacity: 1;
+    transform: scale(1);
   }
   10.2% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   20% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   20.1% {
     opacity: 1;
+    transform: scale(1);
   }
   20.6% {
     opacity: 0.8;
+    transform: scale(0.9);
   }
   30% {
     opacity: 0.8;
+    transform: scale(0.9);
   }
   30.1% {
     opacity: 1;
+    transform: scale(1);
   }
   30.5% {
     opacity: 1;
+    transform: scale(1);
   }
   30.6% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   45% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   45.1% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
     opacity: 1;
+    transform: scale(1);
   }
   55% {
     opacity: 1;
+    transform: scale(1);
   }
   55.1% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   57% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   57.1% {
     opacity: 1;
+    transform: scale(1);
   }
   60% {
     opacity: 1;
+    transform: scale(1);
   }
   60.1% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   65% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   65.1% {
     opacity: 1;
+    transform: scale(1);
   }
   75% {
     opacity: 1;
+    transform: scale(1);
   }
   75.1% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   77% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   77.1% {
     opacity: 1;
+    transform: scale(1);
   }
   85% {
     opacity: 1;
+    transform: scale(1);
   }
   85.1% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   86% {
     opacity: 0.8;
+    transform: scale(0.8);
   }
   86.1% {
     opacity: 1;
+    transform: scale(1);
   }
   100% {
     opacity: 1;
+    transform: scale(1);
   }
 }
