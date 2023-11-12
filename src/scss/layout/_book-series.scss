@@ -5,13 +5,14 @@
 
 .book-series__title {
   display: inline-flex;
+  align-items: baseline;
   font-family: $secondary-font-family;
   margin-bottom: 20px;
   font-size: 40px;
   color: $secondary-text-color;
   background-color: $accent-background-color;
 
-  &--word::first-letter {
+  &--word:not(.anim-letter)::first-letter {
     font-size: 60px;
     color: $accent-color;
     text-shadow: 2px 1px 1px $secondary-text-color;
@@ -20,6 +21,7 @@
     font-size: 60px;
   }
 }
+
 .book-series__list {
   position: relative;
   z-index: 100;
@@ -125,7 +127,30 @@
     animation: flicker-in-1 3s linear both infinite;
   }
 }
+.witcher {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background-size: 150px;
 
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+
+    background-image: url(../image/knight.svg);
+    background-repeat: no-repeat;
+
+    animation: knight 4s linear both infinite;
+  }
+}
+.anim-letter {
+  opacity: 1;
+  animation: rotate-out-2-ccw 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
 @keyframes animBoyFlight {
   0% {
     opacity: 1;
@@ -312,5 +337,65 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+@keyframes knight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  10% {
+    transform: translateX(-50%) rotate(2deg);
+  }
+  20% {
+    transform: translateX(-100%) rotate(-2deg);
+  }
+  30% {
+    transform: translateX(-150%) rotate(2deg);
+  }
+  40% {
+    transform: translateX(-200%) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(-250%) rotate(2deg);
+  }
+  60% {
+    transform: translateX(-300%) rotate(-2deg);
+  }
+  70% {
+    transform: translateX(-350%) rotate(2deg);
+  }
+  80% {
+    transform: translateX(-380%) rotate(-2deg);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(-420%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-430%) rotate(0deg);
+    opacity: 0.5;
+  }
+}
+@keyframes rotate-out-2-ccw {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  89% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
   }
 }
