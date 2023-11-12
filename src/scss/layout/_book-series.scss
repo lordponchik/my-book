@@ -147,6 +147,36 @@
     animation: knight 4s linear both infinite;
   }
 }
+.dark-tower {
+  position: relative;
+  z-index: 1;
+}
+.tower {
+  position: relative;
+
+  &::after {
+    content: '';
+    z-index: 5;
+    position: absolute;
+    top: 200px;
+    right: -1%;
+    width: 300px;
+    height: 300px;
+    background-size: 300px;
+
+    background-image: url(../image/cowboy.svg);
+    background-repeat: no-repeat;
+
+    transform: translateX(100%) rotate(0);
+
+    animation: cowboy 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  }
+}
+.anim-tower {
+  font-size: 90px;
+  transform: translate(0, 0) rotate(0deg);
+  animation: rotateT 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
 .anim-letter {
   opacity: 1;
   animation: rotate-out-2-ccw 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
@@ -397,5 +427,40 @@
   100% {
     opacity: 0;
     transform: translateY(100%);
+  }
+}
+@keyframes cowboy {
+  0% {
+    transform: translateX(100%) rotate(0);
+  }
+  50% {
+    transform: translateX(10%) rotate(0);
+  }
+  80% {
+    transform: translateX(10%) rotate(0);
+  }
+  90% {
+    transform: translateX(10%) rotate(15deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(15deg);
+  }
+}
+@keyframes rotateT {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  89% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  90% {
+    transform: translate(0, 0) rotate(0);
+  }
+  93% {
+    transform: translate(-5px, 10px) rotate(-45deg);
+  }
+  100% {
+    transform: translate(-5px, 10px) rotate(-45deg);
   }
 }
