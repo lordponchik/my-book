@@ -1,4 +1,4 @@
-import { fetchBooks } from './booksAPI';
+import { fetchBooksCategory } from './booksAPI';
 import svg from '../image/no-image-placeholder.svg';
 
 const potterEl = document.querySelector('.potter');
@@ -6,16 +6,16 @@ const icefireEl = document.querySelector('.icefire');
 const witcherEl = document.querySelector('.witcher');
 const darkTowerEl = document.querySelector('.dark-tower');
 
-fetchBooks('harry+potter').then(items => {
+fetchBooksCategory('harry+potter').then(items => {
   potterEl.innerHTML = renderBooks(items);
 });
-fetchBooks('a+song+of+ice+and+fire').then(items => {
+fetchBooksCategory('a+song+of+ice+and+fire').then(items => {
   icefireEl.innerHTML = renderBooks(items);
 });
-fetchBooks('the+witcher').then(items => {
+fetchBooksCategory('the+witcher').then(items => {
   witcherEl.innerHTML = renderBooks(items);
 });
-fetchBooks('the+dark+tower').then(items => {
+fetchBooksCategory('the+dark+tower').then(items => {
   darkTowerEl.innerHTML = renderBooks(items);
 });
 
@@ -46,15 +46,15 @@ function isDate(date) {
 
 function renderBooks(books) {
   return books
-    .map(({ volumeInfo }) => {
-      return `<li class="book-series__item">
+    .map(item => {
+      return `<li class="book-series__item" data-id="${item.id}">
              <div class="book-series__img"><img src="${thumbnail(
-               volumeInfo
+               item.volumeInfo
              )}" alt="" width="150"></div>
               <div class="book-series__wrapper">
-                <h3 class="book-series__name">${isTitle(volumeInfo.title)}</h3>
-                <p class="book-series__author">${isAuthor(volumeInfo.authors)}</p>
-                <p class="book-series__date">${isDate(volumeInfo.publishedDate)}</p>
+                <h3 class="book-series__name">${isTitle(item.volumeInfo.title)}</h3>
+                <p class="book-series__author">${isAuthor(item.volumeInfo.authors)}</p>
+                <p class="book-series__date">${isDate(item.volumeInfo.publishedDate)}</p>
               </div>
             </li>`;
     })
