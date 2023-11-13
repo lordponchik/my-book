@@ -48,9 +48,9 @@ function renderBooks(books) {
   return books
     .map(({ volumeInfo }) => {
       return `<li class="book-series__item">
-              <div class="book-series__img"><img src="${thumbnail(
-                volumeInfo
-              )}" alt="" width="150"></div>
+             <div class="book-series__img"><img src="${thumbnail(
+               volumeInfo
+             )}" alt="" width="150"></div>
               <div class="book-series__wrapper">
                 <h3 class="book-series__name">${isTitle(volumeInfo.title)}</h3>
                 <p class="book-series__author">${isAuthor(volumeInfo.authors)}</p>

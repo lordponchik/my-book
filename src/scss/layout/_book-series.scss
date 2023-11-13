@@ -40,6 +40,8 @@
   display: flex;
   width: calc((100% / 2) - 30px);
   align-items: center;
+
+  cursor: pointer;
 }
 .book-series__img {
   display: flex;
