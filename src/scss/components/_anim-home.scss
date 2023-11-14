@@ -1,6 +1,4 @@
 .potter {
-  position: relative;
-
   &::before {
     content: '';
     position: absolute;
@@ -83,6 +81,7 @@
 }
 .cowboy {
   position: relative;
+  overflow: hidden;
 
   &::after {
     content: '';
