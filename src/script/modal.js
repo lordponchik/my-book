@@ -1,16 +1,36 @@
-const bookEl = document.querySelector('.potter');
+import { fetchBook } from './booksAPI';
+import { renderModalBook } from './renderBookInModal';
+
 const backdropEl = document.querySelector('.backdrop');
+const bookCategoryEl = document.querySelectorAll('.book-series__list');
+const backdropBtnCloseEl = document.querySelector('.backdrop__close');
 
-console.log(bookEl.childNodes);
+backdropEl.addEventListener('click', backdropHidden);
+backdropBtnCloseEl.addEventListener('click', backdropClose);
 
-bookEl.addEventListener('click', e => {
+bookCategoryEl.forEach(el => {
+  el.addEventListener('click', backdropShow);
+});
+
+function backdropShow(e) {
   if (e.target.nodeName === e.currentTarget.nodeName) return;
-  const el = e.target.nodeName === 'LI' ? e.target : e.target.parentNode.parentNode;
-
-  //   if (e.target.parentNode.nodeName === 'DIV') console.log(e.target.parentNode.parentNode);
+  const item = e.target.nodeName === 'LI' ? e.target : e.target.parentNode.parentNode;
 
   backdropEl.classList.add('show');
-  backdropEl.addEventListener('click', e => {
-    e.target.classList.remove('show');
+
+  fetchBook(item.getAttribute('data-id')).then(data => {
+    backdropEl.firstElementChild.lastElementChild.innerHTML = renderModalBook(data);
   });
-});
+}
+
+function backdropHidden(e) {
+  if (e.target !== e.currentTarget) return;
+
+  e.target.firstElementChild.lastElementChild.innerHTML = '';
+  e.target.classList.remove('show');
+}
+
+function backdropClose() {
+  backdropEl.firstElementChild.lastElementChild.innerHTML = '';
+  backdropEl.classList.remove('show');
+}
