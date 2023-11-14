@@ -17,6 +17,7 @@ function backdropShow(e) {
   const item = e.target.nodeName === 'LI' ? e.target : e.target.parentNode.parentNode;
 
   backdropEl.classList.add('show');
+  bodyHidden();
 
   fetchBook(item.getAttribute('data-id')).then(data => {
     backdropEl.firstElementChild.lastElementChild.innerHTML = renderModalBook(data);
@@ -28,9 +29,17 @@ function backdropHidden(e) {
 
   e.target.firstElementChild.lastElementChild.innerHTML = '';
   e.target.classList.remove('show');
+  bodyHidden();
 }
 
 function backdropClose() {
   backdropEl.firstElementChild.lastElementChild.innerHTML = '';
   backdropEl.classList.remove('show');
+  bodyHidden();
+}
+
+function bodyHidden() {
+  backdropEl.classList.contains('show')
+    ? (document.body.style.overflow = 'hidden')
+    : document.body.style.removeProperty('overflow');
 }
