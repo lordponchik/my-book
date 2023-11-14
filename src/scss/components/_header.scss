@@ -17,6 +17,9 @@
   position: relative;
   overflow: hidden;
 
+  display: inline-flex;
+  align-items: baseline;
+
   text-transform: uppercase;
 
   &__1 {
