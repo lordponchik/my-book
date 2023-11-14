@@ -577,8 +577,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"8lqZg":[function(require,module,exports) {
 var _indexScss = require("./scss/index.scss");
 var _renderCategory = require("./script/renderCategory");
+var _modal = require("./script/modal");
+var _renderBookInModal = require("./script/renderBookInModal");
 
-},{"./scss/index.scss":"kVb0b","./script/renderCategory":"6lWY1"}],"kVb0b":[function() {},{}],"6lWY1":[function(require,module,exports) {
+},{"./scss/index.scss":"kVb0b","./script/renderCategory":"6lWY1","./script/modal":"cmqWk","./script/renderBookInModal":"6q8fA"}],"kVb0b":[function() {},{}],"6lWY1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _booksAPI = require("./booksAPI");
 var _noImagePlaceholderSvg = require("../image/no-image-placeholder.svg");
@@ -587,16 +589,16 @@ const potterEl = document.querySelector(".potter");
 const icefireEl = document.querySelector(".icefire");
 const witcherEl = document.querySelector(".witcher");
 const darkTowerEl = document.querySelector(".dark-tower");
-(0, _booksAPI.fetchBooks)("harry+potter").then((items)=>{
+(0, _booksAPI.fetchBooksCategory)("harry+potter").then((items)=>{
     potterEl.innerHTML = renderBooks(items);
 });
-(0, _booksAPI.fetchBooks)("a+song+of+ice+and+fire").then((items)=>{
+(0, _booksAPI.fetchBooksCategory)("a+song+of+ice+and+fire").then((items)=>{
     icefireEl.innerHTML = renderBooks(items);
 });
-(0, _booksAPI.fetchBooks)("the+witcher").then((items)=>{
+(0, _booksAPI.fetchBooksCategory)("the+witcher").then((items)=>{
     witcherEl.innerHTML = renderBooks(items);
 });
-(0, _booksAPI.fetchBooks)("the+dark+tower").then((items)=>{
+(0, _booksAPI.fetchBooksCategory)("the+dark+tower").then((items)=>{
     darkTowerEl.innerHTML = renderBooks(items);
 });
 function thumbnail({ imageLinks }) {
@@ -608,7 +610,7 @@ function isTitle(title) {
     return title.length > 45 ? `${title.slice(0, 45)}...` : title;
 }
 function isAuthor(author) {
-    if (!author) return "...";
+    if (!author) return "";
     return author.join(", ");
 }
 function isDate(date) {
@@ -616,31 +618,38 @@ function isDate(date) {
     return date;
 }
 function renderBooks(books) {
-    return books.map(({ volumeInfo })=>{
-        return `<li class="book-series__item">
-              <div class="book-series__img"><img src="${thumbnail(volumeInfo)}" alt="" width="150"></div>
+    return books.map((item)=>{
+        return `<li class="book-series__item" data-id="${item.id}">
+             <div class="book-series__img"><img src="${thumbnail(item.volumeInfo)}" alt="" width="150"></div>
               <div class="book-series__wrapper">
-                <h3 class="book-series__name">${isTitle(volumeInfo.title)}</h3>
-                <p class="book-series__author">${isAuthor(volumeInfo.authors)}</p>
-                <p class="book-series__date">${isDate(volumeInfo.publishedDate)}</p>
+                <h3 class="book-series__name">${isTitle(item.volumeInfo.title)}</h3>
+                <p class="book-series__author">${isAuthor(item.volumeInfo.authors)}</p>
+                <p class="book-series__date">${isDate(item.volumeInfo.publishedDate)}</p>
               </div>
             </li>`;
     }).join("");
 }
 
-},{"./booksAPI":"lhp3x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../image/no-image-placeholder.svg":"4zaaY"}],"lhp3x":[function(require,module,exports) {
+},{"./booksAPI":"lhp3x","../image/no-image-placeholder.svg":"4zaaY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lhp3x":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "fetchBooks", ()=>fetchBooks);
+parcelHelpers.export(exports, "fetchBooksCategory", ()=>fetchBooksCategory);
+parcelHelpers.export(exports, "fetchBook", ()=>fetchBook);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 (0, _axiosDefault.default).defaults.baseURL = "https://www.googleapis.com/books/v1/";
-async function fetchBooks(name) {
+async function fetchBooksCategory(name) {
     const params = `volumes?q=intitle:${name}&printType=books&startIndex=${getRenderStartIndex()}&maxResults=6`;
     const response = await (0, _axiosDefault.default).get(params);
     const data = await response.data;
     const items = await data.items;
     return items;
+}
+async function fetchBook(id) {
+    const params = `volumes/${id}`;
+    const response = await (0, _axiosDefault.default).get(params);
+    const data = await response.data;
+    return data;
 }
 function getRenderStartIndex() {
     return Math.floor(Math.random() * 11);
@@ -5077,6 +5086,84 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}]},["icZzK","8lqZg"], "8lqZg", "parcelRequire78ed")
+},{}],"cmqWk":[function(require,module,exports) {
+var _booksAPI = require("./booksAPI");
+var _renderBookInModal = require("./renderBookInModal");
+const backdropEl = document.querySelector(".backdrop");
+const bookCategoryEl = document.querySelectorAll(".book-series__list");
+const backdropBtnCloseEl = document.querySelector(".backdrop__close");
+backdropEl.addEventListener("click", backdropHidden);
+backdropBtnCloseEl.addEventListener("click", backdropClose);
+bookCategoryEl.forEach((el)=>{
+    el.addEventListener("click", backdropShow);
+});
+function backdropShow(e) {
+    if (e.target.nodeName === e.currentTarget.nodeName) return;
+    const item = e.target.nodeName === "LI" ? e.target : e.target.parentNode.parentNode;
+    backdropEl.classList.add("show");
+    bodyHidden();
+    (0, _booksAPI.fetchBook)(item.getAttribute("data-id")).then((data)=>{
+        backdropEl.firstElementChild.lastElementChild.innerHTML = (0, _renderBookInModal.renderModalBook)(data);
+    });
+}
+function backdropHidden(e) {
+    if (e.target !== e.currentTarget) return;
+    e.target.firstElementChild.lastElementChild.innerHTML = "";
+    e.target.classList.remove("show");
+    bodyHidden();
+}
+function backdropClose() {
+    backdropEl.firstElementChild.lastElementChild.innerHTML = "";
+    backdropEl.classList.remove("show");
+    bodyHidden();
+}
+function bodyHidden() {
+    backdropEl.classList.contains("show") ? document.body.style.overflow = "hidden" : document.body.style.removeProperty("overflow");
+}
+
+},{"./renderBookInModal":"6q8fA","./booksAPI":"lhp3x"}],"6q8fA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderModalBook", ()=>renderModalBook);
+var _noImagePlaceholderSvg = require("../image/no-image-placeholder.svg");
+var _noImagePlaceholderSvgDefault = parcelHelpers.interopDefault(_noImagePlaceholderSvg);
+function renderModalBook({ volumeInfo }) {
+    return `
+  <div class="book">
+             <div class="book__img"><img src="${thumbnail(volumeInfo)}" alt="" width="200"></div>
+              <div class="book__wrapper">
+                <h3 class="book__name">${isTitle(volumeInfo.title)}</h3>
+                <p class="book__author">${isAuthor(volumeInfo.authors)}</p>
+                <p class="book__date">${isDate(volumeInfo.publishedDate)}</p>
+                <p class="book__description">${isDescr(volumeInfo.description)}</p>
+              </div>
+            </div>`;
+}
+function isDescr(descr) {
+    if (!descr) return "";
+    if (descr.includes("<p>")) {
+        descr = descr.replaceAll("<p>", "");
+        descr = descr.replaceAll("</p>", "");
+    }
+    return descr.length > 550 ? `${descr.slice(0, 550)}...` : descr;
+}
+function thumbnail({ imageLinks }) {
+    if (!imageLinks || !imageLinks.thumbnail) return 0, _noImagePlaceholderSvgDefault.default;
+    return imageLinks.thumbnail;
+}
+function isTitle(title) {
+    if (!title) return "Title in the registration process...";
+    return title;
+}
+function isAuthor(author) {
+    if (!author) return "";
+    return author.join(", ");
+}
+function isDate(date) {
+    if (!date) return "in the process of writing...";
+    return date;
+}
+
+},{"../image/no-image-placeholder.svg":"4zaaY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["icZzK","8lqZg"], "8lqZg", "parcelRequire78ed")
 
 //# sourceMappingURL=index.975ef6c8.js.map
