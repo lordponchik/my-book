@@ -1,13 +1,15 @@
 .book-series {
   padding-top: 60px;
   padding-bottom: 60px;
+  overflow: hidden;
 }
 
 .book-series__title {
   display: inline-flex;
   align-items: baseline;
-  font-family: $secondary-font-family;
   margin-bottom: 20px;
+
+  font-family: $secondary-font-family;
   font-size: 40px;
   color: $secondary-text-color;
   background-color: $accent-background-color;
@@ -25,6 +27,7 @@
 .book-series__list {
   position: relative;
   z-index: 100;
+
   display: flex;
   flex-wrap: wrap;
   padding: 25px 20px;
