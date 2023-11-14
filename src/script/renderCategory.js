@@ -1,4 +1,5 @@
 import { fetchBooksCategory } from './booksAPI';
+
 import svg from '../image/no-image-placeholder.svg';
 
 const potterEl = document.querySelector('.potter');
@@ -33,7 +34,7 @@ function isTitle(title) {
 }
 function isAuthor(author) {
   if (!author) {
-    return '...';
+    return '';
   }
   return author.join(', ');
 }
