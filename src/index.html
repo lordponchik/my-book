@@ -14,96 +14,104 @@
     <script src="./script/loadTheme.js" defer type="module"></script>
   </head>
   <body data-theme="">
-    <header class="header">
-      <div class="container">
-        <nav class="nav">
+    <div class="wrapper">
+      <div class="content">
+        <header class="header">
+          <div class="container">
+            <nav class="nav">
+              <a href="##" class="logo link"
+                ><span class="logo__1">my</span><span class="logo__2">book</span></a
+              >
+              <ul class="site-nav list">
+                <li class="site-nav__item">
+                  <a href="./index.html" class="site-nav__link site-nav__link--active link">Home</a>
+                </li>
+                <li class="site-nav__item">
+                  <a href="./catalog.html" class="site-nav__link link">Catalog</a>
+                </li>
+                <li class="site-nav__item">
+                  <a href="##" class="site-nav__link link">my library</a>
+                </li>
+              </ul>
+              <button type="button" class="switch-theme">
+                <svg class="switch-icon">
+                  <use class="switch-icon__light" href="./image/sprite.svg#icon-brightness"></use>
+                  <use class="switch-icon__dark" href="./image/sprite.svg#icon-moon"></use>
+                </svg>
+              </button>
+            </nav>
+          </div>
+        </header>
+        <main>
+          <section class="hero">
+            <div class="container hero__container">
+              <div class="hero__description">
+                <h1 class="hero__title">
+                  <span class="hero__title--special">Find</span> and
+                  <span class="hero__title--special">read</span> <br />
+                  your <span class="hero__title--special">favorite</span> <br />
+                  books
+                </h1>
+                <p class="hero__text">
+                  Find your favorite books and add <br />
+                  them to your collection.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section class="book-series">
+            <div class="container">
+              <h2 class="book-series__title">
+                <p class="book-series__title--word">Harry</p>
+                <p class="book-series__title--word">Potter</p>
+              </h2>
+              <ul class="book-series__list potter list"></ul>
+            </div>
+          </section>
+          <section class="book-series">
+            <div class="container">
+              <h2 class="book-series__title">
+                <p class="book-series__title--article">A</p>
+                <p class="book-series__title--word">Song</p>
+                <p class="book-series__title--article">of</p>
+                <p class="book-series__title--word ice">Ice</p>
+                <p class="book-series__title--article">and</p>
+                <p class="book-series__title--word fire">Fire</p>
+              </h2>
+              <ul class="book-series__list icefire list"></ul>
+            </div>
+          </section>
+          <section class="book-series">
+            <div class="container">
+              <h2 class="book-series__title">
+                <p class="book-series__title--article">The</p>
+                <p class="book-series__title--word">Witche</p>
+                <p class="book-series__title--word anim-letter-witcher">r</p>
+              </h2>
+              <ul class="book-series__list witcher list"></ul>
+            </div>
+          </section>
+          <section class="book-series cowboy">
+            <div class="container">
+              <h2 class="book-series__title">
+                <p class="book-series__title--article">The</p>
+                <p class="book-series__title--word">Dark</p>
+                <p class="book-series__title--word anim-letter-tower">T</p>
+                <p>ower</p>
+              </h2>
+              <ul class="book-series__list dark-tower list"></ul>
+            </div>
+          </section>
+        </main>
+      </div>
+      <footer class="footer">
+        <div class="container footer__container">
           <a href="##" class="logo link"
             ><span class="logo__1">my</span><span class="logo__2">book</span></a
           >
-          <ul class="site-nav list">
-            <li class="site-nav__item">
-              <a href="##" class="site-nav__link site-nav__link--active link">Home</a>
-            </li>
-            <li class="site-nav__item"><a href="##" class="site-nav__link link">Catalog</a></li>
-            <li class="site-nav__item"><a href="##" class="site-nav__link link">my library</a></li>
-          </ul>
-          <button type="button" class="switch-theme">
-            <svg class="switch-icon">
-              <use class="switch-icon__light" href="./image/sprite.svg#icon-brightness"></use>
-              <use class="switch-icon__dark" href="./image/sprite.svg#icon-moon"></use>
-            </svg>
-          </button>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <section class="hero">
-        <div class="container hero__container">
-          <div class="hero__description">
-            <h1 class="hero__title">
-              <span class="hero__title--special">Find</span> and
-              <span class="hero__title--special">read</span> <br />
-              your <span class="hero__title--special">favorite</span> <br />
-              books
-            </h1>
-            <p class="hero__text">
-              Find your favorite books and add <br />
-              them to your collection.
-            </p>
-          </div>
         </div>
-      </section>
-      <section class="book-series">
-        <div class="container">
-          <h2 class="book-series__title">
-            <p class="book-series__title--word">Harry</p>
-            <p class="book-series__title--word">Potter</p>
-          </h2>
-          <ul class="book-series__list potter list"></ul>
-        </div>
-      </section>
-      <section class="book-series">
-        <div class="container">
-          <h2 class="book-series__title">
-            <p class="book-series__title--article">A</p>
-            <p class="book-series__title--word">Song</p>
-            <p class="book-series__title--article">of</p>
-            <p class="book-series__title--word ice">Ice</p>
-            <p class="book-series__title--article">and</p>
-            <p class="book-series__title--word fire">Fire</p>
-          </h2>
-          <ul class="book-series__list icefire list"></ul>
-        </div>
-      </section>
-      <section class="book-series">
-        <div class="container">
-          <h2 class="book-series__title">
-            <p class="book-series__title--article">The</p>
-            <p class="book-series__title--word">Witche</p>
-            <p class="book-series__title--word anim-letter-witcher">r</p>
-          </h2>
-          <ul class="book-series__list witcher list"></ul>
-        </div>
-      </section>
-      <section class="book-series cowboy">
-        <div class="container">
-          <h2 class="book-series__title">
-            <p class="book-series__title--article">The</p>
-            <p class="book-series__title--word">Dark</p>
-            <p class="book-series__title--word anim-letter-tower">T</p>
-            <p>ower</p>
-          </h2>
-          <ul class="book-series__list dark-tower list"></ul>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="container footer__container">
-        <a href="##" class="logo link"
-          ><span class="logo__1">my</span><span class="logo__2">book</span></a
-        >
-      </div>
-    </footer>
+      </footer>
+    </div>
     <div class="backdrop">
       <div class="modal__wrapper">
         <button type="button" class="backdrop__close">

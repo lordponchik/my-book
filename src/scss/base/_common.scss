@@ -1,5 +1,10 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+html,
+body {
+  height: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -19,6 +24,15 @@ body {
 
   background-color: var(--accent-background-color);
   color: var(--primary-text-color);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content {
+  flex: 1 0 auto;
 }
 
 .list {
