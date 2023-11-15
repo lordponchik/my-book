@@ -1,11 +1,10 @@
 const switchThemeBtnEl = document.querySelector('.switch-theme');
+const LOCALE_THEME = 'theme';
 
 switchThemeBtnEl.addEventListener('click', () => {
-  let dataTheme = document.documentElement.getAttribute('data-theme'),
-    newTheme;
-  newTheme = dataTheme === 'light' ? 'dark' : 'light';
+  const dataTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = dataTheme === 'light' ? 'dark' : 'light';
 
+  localStorage.setItem(LOCALE_THEME, newTheme);
   document.documentElement.setAttribute('data-theme', newTheme);
 });
-
-console.log(switchThemeBtnEl);
