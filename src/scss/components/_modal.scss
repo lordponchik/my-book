@@ -18,7 +18,7 @@
   }
 
   &.show .modal__wrapper {
-    animation: animModal 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    transform: translateY(0);
   }
 }
 .modal__wrapper {
@@ -34,6 +34,8 @@
   height: auto;
 
   background-color: var(--primary-background-color);
+
+  transition: transform 1s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .backdrop__close {
@@ -53,19 +55,4 @@
   background-color: var(--accent-color);
   fill: var(--primary-background-color);
   box-shadow: 5px 5px 5px -5px var(--box-shadow-color);
-}
-@keyframes animModal {
-  0% {
-    opacity: 0;
-    transform: translate(0, -100%);
-  }
-
-  80% {
-    opacity: 0;
-    transform: translate(0, -100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
 }
