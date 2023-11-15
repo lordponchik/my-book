@@ -11,13 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Righteous&display=swap"
       rel="stylesheet"
     />
-
-    <script>
-      document.documentElement.setAttribute(
-        'data-theme',
-        localStorage.key('theme') === null ? 'light' : localStorage.getItem('theme')
-      );
-    </script>
+    <script src="./script/loadTheme.js" defer type="module"></script>
   </head>
   <body data-theme="">
     <header class="header">
@@ -33,7 +27,12 @@
             <li class="site-nav__item"><a href="##" class="site-nav__link link">Catalog</a></li>
             <li class="site-nav__item"><a href="##" class="site-nav__link link">my library</a></li>
           </ul>
-          <button type="button" class="switch-theme"></button>
+          <button type="button" class="switch-theme">
+            <svg class="switch-icon">
+              <use class="switch-icon__light" href="./image/sprite.svg#icon-brightness"></use>
+              <use class="switch-icon__dark" href="./image/sprite.svg#icon-moon"></use>
+            </svg>
+          </button>
         </nav>
       </div>
     </header>
@@ -108,18 +107,6 @@
     <div class="backdrop">
       <div class="modal__wrapper">
         <button type="button" class="backdrop__close">
-          <!-- <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="Bold"
-            viewBox="0 0 24 24"
-            width="36"
-            height="36"
-          >
-            <path
-              d="M14.121,12,18,8.117A1.5,1.5,0,0,0,15.883,6L12,9.879,8.11,5.988A1.5,1.5,0,1,0,5.988,8.11L9.879,12,6,15.882A1.5,1.5,0,1,0,8.118,18L12,14.121,15.878,18A1.5,1.5,0,0,0,18,15.878Z"
-            />
-          </svg>
-         -->
           <svg><use href="./image/sprite.svg#icon-cross-small"></use></svg>
         </button>
         <div class="modal"></div>

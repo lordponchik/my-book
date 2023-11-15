@@ -87,10 +87,34 @@
 }
 
 .switch-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 30px;
   height: 30px;
 
+  border-radius: 50%;
   border-style: none;
   cursor: pointer;
   background-color: var(--accent-color);
+}
+.switch-icon {
+  width: inherit;
+  height: inherit;
+
+  fill: #fff;
+
+  transition: transform 500ms cubic-bezier(0.39, 0.575, 0.565, 1);
+
+  & .hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus {
+    transform: rotate(360deg);
+  }
 }
