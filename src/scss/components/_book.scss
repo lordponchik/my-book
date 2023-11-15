@@ -4,15 +4,12 @@
   align-items: center;
   padding: 25px;
 
-  -webkit-box-shadow: 0px -8px 5px -5px rgba(120, 120, 120, 0.6) inset;
-  -moz-box-shadow: 0px -8px 5px -5px rgba(120, 120, 120, 0.6) inset;
-  box-shadow: 0px -8px 5px -5px rgba(120, 120, 120, 0.6) inset;
+  box-shadow: 0px -8px 5px -5px var(--box-shadow-color) inset;
 }
 .book__img {
   margin-right: 50px;
-  -webkit-box-shadow: 7px 7px 5px -5px rgba(34, 60, 80, 0.87);
-  -moz-box-shadow: 7px 7px 5px -5px rgba(34, 60, 80, 0.87);
-  box-shadow: 7px 7px 5px -5px rgba(34, 60, 80, 0.87);
+
+  box-shadow: 7px 7px 5px -5px var(--box-shadow-color);
 }
 .book__wrapper {
   width: 70%;
@@ -20,11 +17,11 @@
 .book__name {
   margin-bottom: 5px;
 
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   &::first-letter {
     font-family: $secondary-font-family;
     font-size: 40px;
-    color: $accent-color;
+    color: var(--accent-color);
   }
 }
 .book__author {
@@ -32,7 +29,7 @@
 
   font-family: $secondary-font-family;
   font-size: 15px;
-  color: $accent-color;
+  color: var(--accent-color);
 }
 .book__date {
   margin-bottom: 15px;

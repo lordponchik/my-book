@@ -11,13 +11,13 @@
 
   font-family: $secondary-font-family;
   font-size: 40px;
-  color: $secondary-text-color;
-  background-color: $accent-background-color;
+  color: var(--secondary-text-color);
+  background-color: var(--accent-background-color);
 
   &--word:not(.anim-letter)::first-letter {
     font-size: 60px;
-    color: $accent-color;
-    text-shadow: 2px 1px 1px $secondary-text-color;
+    color: var(--accent-color);
+    text-shadow: 2px 1px 1px var(--secondary-text-color);
   }
   &--article::first-letter {
     font-size: 60px;
@@ -34,10 +34,8 @@
   justify-content: space-between;
   gap: 30px;
 
-  background-color: $primary-background-color;
-  -webkit-box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
-  -moz-box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
-  box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6);
+  background-color: var(--primary-background-color);
+  box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
 }
 .book-series__item {
   display: flex;
@@ -58,11 +56,11 @@
 .book-series__name {
   margin-bottom: 10px;
 
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
 
   &::first-letter {
     font-size: 35px;
-    color: $accent-color;
+    color: var(--accent-color);
   }
 }
 
@@ -70,5 +68,5 @@
   margin-bottom: 10px;
 
   font-size: 15px;
-  color: $accent-color;
+  color: var(--accent-color);
 }

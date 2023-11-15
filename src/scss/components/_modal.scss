@@ -9,7 +9,7 @@
   visibility: hidden;
   pointer-events: none;
 
-  background-color: rgba($color: #9b9b9b, $alpha: 0.5);
+  background-color: rgba($color: var(--accent-color), $alpha: 0.5);
 
   &.show {
     opacity: 1;
@@ -33,7 +33,7 @@
   max-height: 80%;
   height: auto;
 
-  background-color: #fff;
+  background-color: var(--primary-background-color);
 }
 
 .backdrop__close {
@@ -50,12 +50,9 @@
   cursor: pointer;
   border: none;
   border-radius: 50%;
-  background-color: $accent-color;
-  fill: $primary-background-color;
-
-  -webkit-box-shadow: 5px 5px 5px -5px rgba(120, 120, 120, 0.6);
-  -moz-box-shadow: 5px 5px 5px -5px rgba(120, 120, 120, 0.6);
-  box-shadow: 5px 5px 5px -5px rgba(120, 120, 120, 0.6);
+  background-color: var(--accent-color);
+  fill: var(--primary-background-color);
+  box-shadow: 5px 5px 5px -5px var(--box-shadow-color);
 }
 @keyframes animModal {
   0% {

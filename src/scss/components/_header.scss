@@ -2,11 +2,8 @@
   padding-top: 30px;
   padding-bottom: 30px;
 
-  background-color: $primary-background-color;
-
-  -webkit-box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
-  -moz-box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
-  box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+  background-color: var(--primary-background-color);
+  box-shadow: 0px -5px 5px -5px var(--box-shadow-color) inset;
 }
 .nav {
   display: flex;
@@ -25,12 +22,12 @@
   &__1 {
     font-family: $secondary-font-family;
     font-size: 25px;
-    color: $accent-color;
+    color: var(--accent-color);
 
     transition: color 250ms cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
   }
   &__2 {
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     font-weight: 600;
 
     transition: color 250ms cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
@@ -46,7 +43,7 @@
     height: 2px;
     transform: translateX(-150%);
 
-    background-color: $accent-color;
+    background-color: var(--accent-color);
 
     transition: transform 2s cubic-bezier(0.23, 1, 0.32, 1);
   }
@@ -56,11 +53,11 @@
   }
   &:hover &__2,
   &:focus &__2 {
-    color: $accent-color;
+    color: var(--accent-color);
   }
   &:hover &__1,
   &:focus &__1 {
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
   }
 }
 
@@ -74,26 +71,26 @@
   }
 }
 .site-nav__link {
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   text-transform: uppercase;
 
   transition: color 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
   &--active {
-    color: $accent-color;
+    color: var(--accent-color);
   }
 
   &:hover,
   &:focus {
-    color: $accent-color;
+    color: var(--accent-color);
   }
 }
 
-.thema {
+.switch-theme {
   width: 30px;
   height: 30px;
 
   border-style: none;
   cursor: pointer;
-  background-color: $accent-color;
+  background-color: var(--accent-color);
 }

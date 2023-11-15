@@ -17,8 +17,8 @@ body {
   font-weight: 500;
   font-size: 20px;
 
-  background-color: $accent-background-color;
-  color: $primary-text-color;
+  background-color: var(--accent-background-color);
+  color: var(--primary-text-color);
 }
 
 .list {
