@@ -29,6 +29,14 @@ export async function fetchGenre(subject) {
 
   return items;
 }
+export async function fetchCatalog(name) {
+  const params = `volumes?q=${name}&printType=books&startIndex=0&maxResults=33`;
+  const response = await axios.get(params);
+  const data = await response.data;
+  const items = await data.items;
+
+  return items;
+}
 
 function getRenderStartIndex(max) {
   return Math.floor(Math.random() * max);
