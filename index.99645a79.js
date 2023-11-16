@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"icZzK":[function(require,module,exports) {
+})({"9fLEx":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
+module.bundle.HMR_BUNDLE_ID = "486f457699645a79";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -574,101 +574,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"8lqZg":[function(require,module,exports) {
-var _indexScss = require("./scss/index.scss");
-var _switchTheme = require("./script/switchTheme");
-var _renderCategory = require("./script/renderCategory");
-var _modal = require("./script/modal");
-var _renderBookInModal = require("./script/renderBookInModal");
+},{}],"lVBQ0":[function(require,module,exports) {
+document.querySelector(".switch-theme").querySelector(`.switch-icon__${localStorage.key("theme") === null ? "dark" : localStorage.getItem("theme") === "dark" ? "light" : "dark"}`).classList.add("hidden");
+document.documentElement.setAttribute("data-theme", localStorage.key("theme") === null ? "light" : localStorage.getItem("theme"));
 
-},{"./scss/index.scss":"kVb0b","./script/switchTheme":"igiAv","./script/renderCategory":"6lWY1","./script/modal":"cmqWk","./script/renderBookInModal":"6q8fA"}],"kVb0b":[function() {},{}],"6lWY1":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _booksAPI = require("./booksAPI");
-var _noImagePlaceholderSvg = require("../image/no-image-placeholder.svg");
-var _noImagePlaceholderSvgDefault = parcelHelpers.interopDefault(_noImagePlaceholderSvg);
-const potterEl = document.querySelector(".potter");
-const icefireEl = document.querySelector(".icefire");
-const witcherEl = document.querySelector(".witcher");
-const darkTowerEl = document.querySelector(".dark-tower");
-(0, _booksAPI.fetchBooksCategory)("harry+potter").then((items)=>{
-    potterEl.innerHTML = renderBooks(items);
-});
-(0, _booksAPI.fetchBooksCategory)("a+song+of+ice+and+fire").then((items)=>{
-    icefireEl.innerHTML = renderBooks(items);
-});
-(0, _booksAPI.fetchBooksCategory)("the+witcher").then((items)=>{
-    witcherEl.innerHTML = renderBooks(items);
-});
-(0, _booksAPI.fetchBooksCategory)("the+dark+tower").then((items)=>{
-    darkTowerEl.innerHTML = renderBooks(items);
-});
-function thumbnail({ imageLinks }) {
-    if (!imageLinks || !imageLinks.thumbnail) return 0, _noImagePlaceholderSvgDefault.default;
-    return imageLinks.thumbnail;
-}
-function isTitle(title) {
-    if (!title) return "Title in the registration process...";
-    return title.length > 45 ? `${title.slice(0, 45)}...` : title;
-}
-function isAuthor(author) {
-    if (!author) return "";
-    return author.join(", ");
-}
-function isDate(date) {
-    if (!date) return "in the process of writing...";
-    return date;
-}
-function renderBooks(books) {
-    return books.map((item)=>{
-        return `<li class="book-series__item" data-id="${item.id}">
-             <div class="book-series__img"><img src="${thumbnail(item.volumeInfo)}" alt="" width="150"></div>
-              <div class="book-series__wrapper">
-                <h3 class="book-series__name">${isTitle(item.volumeInfo.title)}</h3>
-                <p class="book-series__author">${isAuthor(item.volumeInfo.authors)}</p>
-                <p class="book-series__date">${isDate(item.volumeInfo.publishedDate)}</p>
-              </div>
-            </li>`;
-    }).join("");
-}
+},{}]},["9fLEx","lVBQ0"], "lVBQ0", "parcelRequire78ed")
 
-},{"./booksAPI":"lhp3x","../image/no-image-placeholder.svg":"4zaaY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4zaaY":[function(require,module,exports) {
-module.exports = require("475b14c1daaa64f").getBundleURL("bLxZJ") + "no-image-placeholder.39dde084.svg" + "?" + Date.now();
-
-},{"475b14c1daaa64f":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}]},["icZzK","8lqZg"], "8lqZg", "parcelRequire78ed")
-
-//# sourceMappingURL=index.975ef6c8.js.map
+//# sourceMappingURL=index.99645a79.js.map

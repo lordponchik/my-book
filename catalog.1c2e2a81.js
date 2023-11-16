@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"icZzK":[function(require,module,exports) {
+})({"crMyb":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
+module.bundle.HMR_BUNDLE_ID = "161dc9cf1c2e2a81";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -574,41 +574,64 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"8lqZg":[function(require,module,exports) {
-var _indexScss = require("./scss/index.scss");
+},{}],"biTSW":[function(require,module,exports) {
+var _catalogScss = require("./scss/catalog.scss");
 var _switchTheme = require("./script/switchTheme");
-var _renderCategory = require("./script/renderCategory");
 var _modal = require("./script/modal");
-var _renderBookInModal = require("./script/renderBookInModal");
+var _renderSubject = require("./script/renderSubject");
+var _loadCatalog = require("./script/loadCatalog");
 
-},{"./scss/index.scss":"kVb0b","./script/switchTheme":"igiAv","./script/renderCategory":"6lWY1","./script/modal":"cmqWk","./script/renderBookInModal":"6q8fA"}],"kVb0b":[function() {},{}],"6lWY1":[function(require,module,exports) {
+},{"./scss/catalog.scss":"4V4Vg","./script/switchTheme":"igiAv","./script/modal":"cmqWk","./script/renderSubject":"gTQ64","./script/loadCatalog":"3nkPu"}],"4V4Vg":[function() {},{}],"gTQ64":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _booksAPI = require("./booksAPI");
 var _noImagePlaceholderSvg = require("../image/no-image-placeholder.svg");
 var _noImagePlaceholderSvgDefault = parcelHelpers.interopDefault(_noImagePlaceholderSvg);
-const potterEl = document.querySelector(".potter");
-const icefireEl = document.querySelector(".icefire");
-const witcherEl = document.querySelector(".witcher");
-const darkTowerEl = document.querySelector(".dark-tower");
-(0, _booksAPI.fetchBooksCategory)("harry+potter").then((items)=>{
-    potterEl.innerHTML = renderBooks(items);
+const genreEl = document.querySelector(".hero__wrapper--genre");
+const genreBtnEl = document.querySelector(".category");
+let active\u0421urrentBtnEl = genreBtnEl.querySelector(".category__btn.active");
+(0, _booksAPI.fetchGenre)("love").then((data)=>{
+    genreEl.innerHTML = renderBook(data);
 });
-(0, _booksAPI.fetchBooksCategory)("a+song+of+ice+and+fire").then((items)=>{
-    icefireEl.innerHTML = renderBooks(items);
+genreBtnEl.addEventListener("click", (e)=>{
+    if (e.target.nodeName !== "BUTTON") return;
+    active\u0421urrentBtnEl.classList.remove("active");
+    const activeNewBtnEl = e.target;
+    activeNewBtnEl.classList.add("active");
+    active\u0421urrentBtnEl = activeNewBtnEl;
+    genreEl.innerHTML = "";
+    (0, _booksAPI.fetchGenre)(e.target.getAttribute("data-name")).then((data)=>{
+        genreEl.innerHTML = renderBook(data);
+    });
 });
-(0, _booksAPI.fetchBooksCategory)("the+witcher").then((items)=>{
-    witcherEl.innerHTML = renderBooks(items);
-});
-(0, _booksAPI.fetchBooksCategory)("the+dark+tower").then((items)=>{
-    darkTowerEl.innerHTML = renderBooks(items);
-});
+function renderBook(items) {
+    return items.map((item)=>{
+        return `
+  <div class="genre">
+           <div class="genre__container"><div class="genre__img"><img src="${thumbnail(item.volumeInfo)}" alt="" width="100"></div>
+              <div class="genre__wrapper">
+                <h3 class="genre__name">${isTitle(item.volumeInfo.title)}</h3>
+                <p class="genre__author">${isAuthor(item.volumeInfo.authors)}</p>
+                <p class="genre__date">${isDate(item.volumeInfo.publishedDate)}</p>     
+              </div></div>
+              <p class="genre__description">${isDescr(item.volumeInfo.description)}</p>
+            </div>`;
+    }).join("");
+}
+function isDescr(descr) {
+    if (!descr) return "";
+    if (descr.includes("<p>")) {
+        descr = descr.replaceAll("<p>", "");
+        descr = descr.replaceAll("</p>", "");
+    }
+    return descr.length > 585 ? `${descr.slice(0, 580)}...` : descr;
+}
 function thumbnail({ imageLinks }) {
     if (!imageLinks || !imageLinks.thumbnail) return 0, _noImagePlaceholderSvgDefault.default;
     return imageLinks.thumbnail;
 }
 function isTitle(title) {
     if (!title) return "Title in the registration process...";
-    return title.length > 45 ? `${title.slice(0, 45)}...` : title;
+    return title;
 }
 function isAuthor(author) {
     if (!author) return "";
@@ -618,23 +641,11 @@ function isDate(date) {
     if (!date) return "in the process of writing...";
     return date;
 }
-function renderBooks(books) {
-    return books.map((item)=>{
-        return `<li class="book-series__item" data-id="${item.id}">
-             <div class="book-series__img"><img src="${thumbnail(item.volumeInfo)}" alt="" width="150"></div>
-              <div class="book-series__wrapper">
-                <h3 class="book-series__name">${isTitle(item.volumeInfo.title)}</h3>
-                <p class="book-series__author">${isAuthor(item.volumeInfo.authors)}</p>
-                <p class="book-series__date">${isDate(item.volumeInfo.publishedDate)}</p>
-              </div>
-            </li>`;
-    }).join("");
-}
 
-},{"./booksAPI":"lhp3x","../image/no-image-placeholder.svg":"4zaaY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4zaaY":[function(require,module,exports) {
-module.exports = require("475b14c1daaa64f").getBundleURL("bLxZJ") + "no-image-placeholder.39dde084.svg" + "?" + Date.now();
+},{"./booksAPI":"lhp3x","../image/no-image-placeholder.svg":"2ywd3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ywd3":[function(require,module,exports) {
+module.exports = require("30d57d4231508de4").getBundleURL("1TIWo") + "no-image-placeholder.39dde084.svg" + "?" + Date.now();
 
-},{"475b14c1daaa64f":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"30d57d4231508de4":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -669,6 +680,65 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}]},["icZzK","8lqZg"], "8lqZg", "parcelRequire78ed")
+},{}],"3nkPu":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _booksAPI = require("./booksAPI");
+var _noImagePlaceholderSvg = require("../image/no-image-placeholder.svg");
+var _noImagePlaceholderSvgDefault = parcelHelpers.interopDefault(_noImagePlaceholderSvg);
+const catalogEl = document.querySelector(".sect-catalog__wrapper");
+const catalogInput = document.querySelector(".sect-catalog__input");
+const catalogSubmit = document.querySelector(".sect-catalog__submit");
+catalogEl.innerHTML = "";
+(0, _booksAPI.fetchCatalog)("love").then((data)=>{
+    catalogEl.innerHTML = renderBook(data);
+});
+catalogSubmit.addEventListener("click", renderCatalog);
+catalogInput.addEventListener("submit", renderCatalog);
+function renderCatalog(e) {
+    e.preventDefault();
+    catalogEl.innerHTML = "";
+    (0, _booksAPI.fetchCatalog)(`${catalogInput.value.split(" ").join("+")}`).then((data)=>{
+        catalogEl.innerHTML = renderBook(data);
+    });
+}
+function renderBook(items) {
+    return items.map((item)=>{
+        return `
+  <div class="catalog__item">
+           <div class="catalog__container"><div class="catalog__img"><img src="${thumbnail(item.volumeInfo)}" alt="" width="100"></div>
+              <div class="catalog__wrapper">
+                <h3 class="catalog__name">${isTitle(item.volumeInfo.title)}</h3>
+                <p class="catalog__author">${isAuthor(item.volumeInfo.authors)}</p>
+                <p class="catalog__date">${isDate(item.volumeInfo.publishedDate)}</p>     
+              </div></div>
+            </div>`;
+    }).join("");
+}
+function isDescr(descr) {
+    if (!descr) return "";
+    if (descr.includes("<p>")) {
+        descr = descr.replaceAll("<p>", "");
+        descr = descr.replaceAll("</p>", "");
+    }
+    return descr.length > 585 ? `${descr.slice(0, 580)}...` : descr;
+}
+function thumbnail({ imageLinks }) {
+    if (!imageLinks || !imageLinks.thumbnail) return 0, _noImagePlaceholderSvgDefault.default;
+    return imageLinks.thumbnail;
+}
+function isTitle(title) {
+    if (!title) return "Title in the registration process...";
+    return title;
+}
+function isAuthor(author) {
+    if (!author) return "";
+    return author.join(", ");
+}
+function isDate(date) {
+    if (!date) return "in the process of writing...";
+    return date;
+}
 
-//# sourceMappingURL=index.975ef6c8.js.map
+},{"./booksAPI":"lhp3x","../image/no-image-placeholder.svg":"2ywd3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["crMyb","biTSW"], "biTSW", "parcelRequire78ed")
+
+//# sourceMappingURL=catalog.1c2e2a81.js.map
