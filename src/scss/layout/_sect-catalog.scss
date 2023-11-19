@@ -37,9 +37,9 @@
 
   background-color: var(--secondary-background-color);
 }
-.catalog__item {
+.catalog {
   flex-basis: calc((100% / 3) - 20px);
-  user-select: none;
+  cursor: pointer;
 }
 
 .catalog__container {
