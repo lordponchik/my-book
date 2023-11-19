@@ -29,10 +29,12 @@ export async function fetchGenre(subject) {
 
   return items;
 }
-export async function fetchCatalog(name) {
-  const params = `volumes?q=${name}&printType=books&startIndex=0&maxResults=33`;
+
+export async function fetchCatalog(name, num = 0) {
+  const params = `volumes?q=${name}&printType=books&startIndex=${num}&maxResults=33`;
   const response = await axios.get(params);
   const data = await response.data;
+  total = data.totalItems;
   const items = await data.items;
 
   return items;
