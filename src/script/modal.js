@@ -1,26 +1,22 @@
 import { fetchBook } from './booksAPI';
-import { renderModalBook } from './renderBookInModal';
+import { renderBooks } from './renderBooks';
 
 const backdropEl = document.querySelector('.backdrop');
-const bookCategoryEl = document.querySelectorAll('.book-series__list');
 const backdropBtnCloseEl = document.querySelector('.backdrop__close');
 
 backdropEl.addEventListener('click', backdropHidden);
 backdropBtnCloseEl.addEventListener('click', backdropClose);
 
-bookCategoryEl.forEach(el => {
-  el.addEventListener('click', backdropShow);
-});
+export function modalShow(e) {
+  if (e.target === e.currentTarget) return;
 
-function backdropShow(e) {
-  if (e.target.nodeName === e.currentTarget.nodeName) return;
-  const item = e.target.nodeName === 'LI' ? e.target : e.target.parentNode.parentNode;
+  const item = e.target.closest('LI');
 
   backdropEl.classList.add('show');
   bodyHidden();
 
   fetchBook(item.getAttribute('data-id')).then(data => {
-    backdropEl.firstElementChild.lastElementChild.innerHTML = renderModalBook(data);
+    backdropEl.firstElementChild.lastElementChild.innerHTML = renderBooks(data, 'book', true, true);
   });
 }
 
