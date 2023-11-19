@@ -1,5 +1,4 @@
 import './scss/catalog.scss';
 import './script/switchTheme';
-import './script/modal';
-import './script/renderSubject';
+import './script/loadCatalogHeroSubject';
 import './script/loadCatalog';
