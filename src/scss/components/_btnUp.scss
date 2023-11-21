@@ -1,0 +1,26 @@
+.btnUp {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 1001;
+
+  padding: 10px;
+
+  color: var(--secondary-text-color);
+  border-style: none;
+  background-color: var(--accent-color);
+  cursor: pointer;
+
+  transition: color 250ms linear;
+
+  &.hide {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--primary-background-color);
+  }
+}
