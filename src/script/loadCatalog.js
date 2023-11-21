@@ -44,6 +44,7 @@ pagination.on('afterMove', event => {
   let num = (event.page - 1) * 33;
 
   catalogEl.innerHTML = '';
+
   fetchCatalog(search, num)
     .then(data => {
       catalogEl.innerHTML = renderBooks(data, 'catalog');
@@ -53,4 +54,10 @@ pagination.on('afterMove', event => {
 We are very sorry!<br />
 We don’t have any results matching your search.</p>`;
     });
+
+  window.scrollTo({
+    top: catalogInput.getBoundingClientRect().y,
+    left: 0,
+    behavior: 'smooth',
+  });
 });
