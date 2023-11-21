@@ -9,9 +9,14 @@ const catalogSubmit = document.querySelector('.sect-catalog__submit');
 let search = 'love';
 
 catalogEl.innerHTML = '';
-fetchCatalog(search).then(data => {
-  catalogEl.innerHTML = renderBooks(data, 'catalog');
-});
+fetchCatalog(search)
+  .then(data => {
+    catalogEl.innerHTML = renderBooks(data, 'catalog');
+  })
+  .catch(error => {
+    catalogEl.innerHTML = `<p style="text-align:center;color: #fff;">OOPS... <br />
+We are very sorry!</p>`;
+  });
 
 catalogSubmit.addEventListener('click', renderCatalog);
 catalogInput.addEventListener('submit', renderCatalog);
@@ -21,9 +26,16 @@ function renderCatalog(e) {
 
   search = `${catalogInput.value.split(' ').join('+')}`;
   catalogEl.innerHTML = '';
-  fetchCatalog(search).then(data => {
-    catalogEl.innerHTML = renderBooks(data, 'catalog');
-  });
+  fetchCatalog(search)
+    .then(data => {
+      catalogEl.innerHTML = renderBooks(data, 'catalog');
+      pagination.reset();
+    })
+    .catch(error => {
+      catalogEl.innerHTML = `<p style="text-align:center;color: #fff;">OOPS... <br />
+We are very sorry!<br />
+We don’t have any results matching your search.</p>`;
+    });
 }
 
 catalogEl.addEventListener('click', modalShow);
@@ -32,7 +44,13 @@ pagination.on('afterMove', event => {
   let num = (event.page - 1) * 33;
 
   catalogEl.innerHTML = '';
-  fetchCatalog(search, num).then(data => {
-    catalogEl.innerHTML = renderBooks(data, 'catalog');
-  });
+  fetchCatalog(search, num)
+    .then(data => {
+      catalogEl.innerHTML = renderBooks(data, 'catalog');
+    })
+    .catch(error => {
+      catalogEl.innerHTML = `<p style="text-align:center;color: #fff;">OOPS... <br />
+We are very sorry!<br />
+We don’t have any results matching your search.</p>`;
+    });
 });
