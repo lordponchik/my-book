@@ -6,7 +6,7 @@ import { renderBooks } from './renderBooks';
 const catalogEl = document.querySelector('.sect-catalog__wrapper');
 const catalogInput = document.querySelector('.sect-catalog__input');
 const catalogSubmit = document.querySelector('.sect-catalog__submit');
-let search = 'love';
+let search = 'liebe';
 
 catalogEl.innerHTML = '';
 fetchCatalog(search)

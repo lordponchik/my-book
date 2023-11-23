@@ -5,7 +5,7 @@ const genreEl = document.querySelector('.hero__wrapper--genre');
 const genreBtnEl = document.querySelector('.category');
 let activeСurrentBtnEl = genreBtnEl.querySelector('.category__btn.active');
 
-fetchGenre('love').then(data => {
+fetchGenre('liebe').then(data => {
   genreEl.innerHTML = renderBooks(data, 'genre', true);
 });
 
