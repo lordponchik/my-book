@@ -39,6 +39,16 @@ export async function fetchCatalog(name, num = 0) {
 
   return items;
 }
+export async function fetchRandomBook(name) {
+  const params = `volumes?q=${name}&printType=books&startIndex=${getRenderStartIndex(
+    33
+  )}&maxResults=1`;
+  const response = await axios.get(params);
+  const data = await response.data;
+  const items = await data.items;
+
+  return items;
+}
 
 function getRenderStartIndex(max) {
   return Math.floor(Math.random() * max);
