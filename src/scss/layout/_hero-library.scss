@@ -1,0 +1,66 @@
+.hero {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.hero__container {
+  display: flex;
+  flex-direction: column;
+}
+.random-book {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+
+  & > * {
+    flex-basis: 50%;
+  }
+}
+.random-book__img {
+  & > img {
+    margin: 0 auto;
+  }
+}
+.btn-random {
+  margin-left: auto;
+  margin-bottom: 25px;
+  padding: 10px 15px;
+
+  color: var(--secondary-text-color);
+  border-style: none;
+  background-color: var(--accent-color);
+  cursor: pointer;
+
+  transition: color 250ms linear;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-background-color);
+  }
+}
+.random-book__name {
+  margin-bottom: 10px;
+
+  font-size: 25px;
+  color: var(--secondary-text-color);
+
+  &::first-letter {
+    font-size: 40px;
+    font-family: $secondary-font-family;
+    color: var(--accent-color);
+  }
+}
+.random-book__author {
+  margin-bottom: 5px;
+
+  font-size: 15px;
+  color: var(--accent-color);
+}
+.random-book__date {
+  margin-bottom: 10px;
+
+  font-size: 15px;
+}
+.random-book__description {
+  font-size: 15px;
+  color: var(--secondary-text-color);
+}
