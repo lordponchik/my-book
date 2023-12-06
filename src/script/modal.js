@@ -1,4 +1,5 @@
 import { fetchBook } from './booksAPI';
+import { loadModalBtn } from './localList';
 import { renderBooks } from './renderBooks';
 
 const backdropEl = document.querySelector('.backdrop');
@@ -17,18 +18,21 @@ export function modalShow(e) {
 
   fetchBook(item.getAttribute('data-id')).then(data => {
     backdropEl.firstElementChild.lastElementChild.innerHTML = renderBooks(data, 'book', true, true);
+    loadModalBtn();
   });
 }
 
 function backdropHidden(e) {
   if (e.target !== e.currentTarget) return;
 
+  loadModalBtn();
   e.target.firstElementChild.lastElementChild.innerHTML = '';
   e.target.classList.remove('show');
   bodyHidden();
 }
 
 function backdropClose() {
+  loadModalBtn();
   backdropEl.firstElementChild.lastElementChild.innerHTML = '';
   backdropEl.classList.remove('show');
   bodyHidden();
