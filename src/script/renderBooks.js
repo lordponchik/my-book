@@ -1,9 +1,12 @@
 import svg from '../image/no-image-placeholder.svg';
+import { isBookInLibrary } from './localList';
 
 export function renderBooks(items, name = 'book', descr = false, modal = false) {
   if (modal === true) {
+    const isInLibrary = isBookInLibrary(items);
+
     return `
-  <div class="${name}">
+  <div class="${name}" data-id="${items.id}">
              <div class="${name}__img"><img src="${thumbnail(
       items.volumeInfo
     )}" alt="" width="200"></div>
@@ -12,9 +15,16 @@ export function renderBooks(items, name = 'book', descr = false, modal = false) 
                 <p class="${name}__author">${isAuthor(items.volumeInfo.authors)}</p>
                 <p class="${name}__date">${isDate(items.volumeInfo.publishedDate)}</p>
                 <p class="${name}__description">${isDescr(items.volumeInfo.description)}</p>
+                <button type="button" class="${name}__btn ${
+      isInLibrary === false ? '' : 'hidden'
+    }"  data-name="add" data-id="${items.id}">add book from library</button>
+      <button type="button" class="${name}__btn ${
+      isInLibrary === true ? '' : 'hidden'
+    }" data-name="remove" data-id="${items.id}">remove book from library</button>
               </div>
             </div>`;
   }
+
   return items
     .map(item => {
       return `<li class="${name}" data-id="${item.id}">
@@ -31,7 +41,7 @@ export function renderBooks(items, name = 'book', descr = false, modal = false) 
                   ? ` <p class="${name}__description">${isDescr(item.volumeInfo.description)}</p>`
                   : ''
               }
-            </li>`;
+              </li>`;
     })
     .join('');
 }
