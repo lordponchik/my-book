@@ -1,0 +1,43 @@
+.loc-library__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px 10px;
+  justify-content: center;
+
+  background-color: var(--secondary-background-color);
+}
+
+.library {
+  flex-basis: calc((100% / 3) - 30px);
+}
+.library__container {
+  box-shadow: 1px 1px 1px var(--box-shadow-color);
+  height: 100%;
+  display: flex;
+}
+.library__img {
+  display: contents;
+}
+.library__wrapper {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  background-color: var(--primary-background-color);
+}
+.library__name {
+  color: var(--secondary-text-color);
+  font-size: 1rem;
+}
+.library__author {
+  color: var(--accent-color);
+  font-size: 0.6rem;
+}
+.library__date {
+  font-size: 0.6rem;
+}
