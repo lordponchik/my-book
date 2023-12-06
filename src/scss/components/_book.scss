@@ -37,5 +37,30 @@
   font-size: 15px;
 }
 .book__description {
+  margin-bottom: 20px;
+
+  font-size: 15px;
+}
+
+.book__btn {
+  padding: 10px 15px;
+
+  cursor: pointer;
+  border: 2px solid var(--accent-color);
+  color: var(--secondary-text-color);
+  background-color: var(--accent-color);
+
+  transition: background-color 250ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+.book__span {
   font-size: 15px;
 }

@@ -61,6 +61,31 @@
   font-size: 15px;
 }
 .random-book__description {
+  margin-bottom: 15px;
+
   font-size: 15px;
   color: var(--secondary-text-color);
+}
+
+.random-book__btn {
+  padding: 10px 15px;
+
+  cursor: pointer;
+  border: 2px solid var(--accent-color);
+  color: var(--secondary-text-color);
+  background-color: var(--accent-color);
+
+  transition: background-color 250ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+.random-book__span {
+  font-size: 15px;
 }
