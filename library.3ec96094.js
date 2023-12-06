@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"icZzK":[function(require,module,exports) {
+})({"bGq9P":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
+module.bundle.HMR_BUNDLE_ID = "608a8b943ec96094";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -574,37 +574,50 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"8lqZg":[function(require,module,exports) {
-var _indexScss = require("./scss/index.scss");
+},{}],"hjkgY":[function(require,module,exports) {
+var _libraryScss = require("./scss/library.scss");
 var _switchTheme = require("./script/switchTheme");
-var _loadHomeSeries = require("./script/loadHomeSeries");
 var _btnUp = require("./script/btnUp");
+var _loadLibraryHero = require("./script/loadLibraryHero");
+var _loadLibrary = require("./script/loadLibrary");
 
-},{"./scss/index.scss":"kVb0b","./script/switchTheme":"igiAv","./script/loadHomeSeries":"fuagu","./script/btnUp":"kzC4c"}],"kVb0b":[function() {},{}],"fuagu":[function(require,module,exports) {
+},{"./scss/library.scss":"aq0zq","./script/switchTheme":"igiAv","./script/btnUp":"kzC4c","./script/loadLibraryHero":"8dOQd","./script/loadLibrary":"cAlFN"}],"aq0zq":[function() {},{}],"8dOQd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _booksAPI = require("./booksAPI");
-var _modal = require("./modal");
 var _renderBooks = require("./renderBooks");
-const seriesEl = document.querySelectorAll(".book-series__list");
-const potterEl = document.querySelector(".potter");
-const icefireEl = document.querySelector(".icefire");
-const witcherEl = document.querySelector(".witcher");
-const darkTowerEl = document.querySelector(".dark-tower");
-(0, _booksAPI.fetchBooksCategory)("harry+potter").then((items)=>{
-    potterEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
+var _dictionaryJson = require("./dictionary.json");
+var _dictionaryJsonDefault = parcelHelpers.interopDefault(_dictionaryJson);
+var _localList = require("./localList");
+const heroEl = document.querySelector(".rndbook");
+const randomBtnEl = document.querySelector(".btn-random");
+(0, _booksAPI.fetchRandomBook)(randomName()).then((item)=>{
+    heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true);
+    (0, _localList.loadBtn)();
 });
-(0, _booksAPI.fetchBooksCategory)("a+song+of+ice+and+fire").then((items)=>{
-    icefireEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
+randomBtnEl.addEventListener("click", (e)=>{
+    e.preventDefault();
+    heroEl.innerHTML = "";
+    (0, _booksAPI.fetchRandomBook)(randomName()).then((item)=>{
+        heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true);
+        (0, _localList.loadBtn)();
+    });
 });
-(0, _booksAPI.fetchBooksCategory)("the+witcher").then((items)=>{
-    witcherEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
-});
-(0, _booksAPI.fetchBooksCategory)("the+dark+tower").then((items)=>{
-    darkTowerEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
-});
-seriesEl.forEach((el)=>{
-    el.addEventListener("click", (0, _modal.modalShow), true);
-});
+function randomName() {
+    return (0, _dictionaryJsonDefault.default)[Math.floor(Math.random() * (0, _dictionaryJsonDefault.default).length)];
+}
 
-},{"./booksAPI":"lhp3x","./modal":"cmqWk","./renderBooks":"bhwKj"}]},["icZzK","8lqZg"], "8lqZg", "parcelRequire78ed")
+},{"./booksAPI":"lhp3x","./renderBooks":"bhwKj","./dictionary.json":"gkVpd","./localList":"8IMTK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkVpd":[function(require,module,exports) {
+module.exports = JSON.parse('["Leute","Mensch","Mann","Frau","Kind","Junge","M\xe4dchen","Freund","Bekannte","Nachbar","Gast","Chef","Konkurrent","Kunde","Kollege","Familie","Eltern","Vater","Mutter","Sohn","Tochter","Bruder","Schwester","Gro\xdfvater","Gro\xdfmutter","Enkel","Enkelin","Schwiegervater","Schwiegermutter","Onkel","Tante","Cousin","Cousine","Neffe","Nichte","Arbeit","Gesch\xe4ftsmann","Lehrer","Fahrer","Arbeiter","Ingenieur","Arzt","Rechtsanwalt","Journalist","Krankenschwester","Verk\xe4ufer","Kellner","Buchhalter","Maler","Musiker","Schauspieler","Student","Sch\xfcler","Tier","Katze","Hund","Vogel","Eichh\xf6rnchen","Wolf","Gans","Giraffe","Kaninchen","Hase","Kuh","Ratte","Fuchs","Pferd","Frosch","B\xe4r","Maus","Affe","Schwein","Elefant","Ente","Stadt","Haus","Geb\xe4ude","Platz","Eingang","Ausgang","Zentrum","Hof","Dach","Zaun","Dorf","Schule","Universit\xe4t","Theater","Kirche","Restaurant","Cafe","Hotel","Bank","Kino","Krankenhaus","Polizei","Postamt","Bahnhof","Flughafen","Gesch\xe4ft","Apotheke","Markt","B\xfcro","Firma","Betrieb","Stra\xdfe","Weg","Kreuzung","Haltestelle","Gehsteig","Pfad","Garten","Park","Br\xfccke","Fluss","Wald","Feld","Berg","See","Meer","Ozean","K\xfcste","Strand","Sand","Insel","Grenze","Stein","Pflanze","Baum","Gras","Blume","Blatt","Zimmer","T\xfcr","Fenster","M\xf6bel","Teppich","Spiegel","Schrank","Bett","Brot","Honig","Kuchen","Wein","Tasse","Glas","Messer","Mahlzeit","Fr\xfchst\xfcck","Mittagessen","Abendessen","Flugzeug","Auto","Bus","Zug","Minute","Stunde","Jahr","Tag","Morgen","Abend","Nacht","Fr\xfchling","Sommer","Herbst","Winter","Weihnachten","Geburtstag","Name","Adresse","Sache","Notiz","Buch","Brief","Zeitung","Uhr","Karte","Ball","Gep\xe4ck","Vase","Geschenk","Rad","Lampe","Kleid","Kopf","K\xf6rper","Gesundheit","Ereignis","Spiel","Urlaub","Reise","Tod","Treffen","Wetter","Sonne","Mond","Wind","Nebel","Regen","Schnee","Himmel","Wolke","Luft","Kunst","Musik","Entfernung","Gef\xfchl","Spa\xdf","Freude","Angst","Traurigkeit","Leidenschaft","Gl\xfcck","Frieden","Welt","Seele","Leben","Wissen","Aufgabe","Problem","Sch\xf6nkeit","Gefahr","Erfahrung","Nutzen","Erinnerung","Grund","Sprache","Feuer","Fall","Umstand","Wahl","Gedanke","Erlaubnis","Leistung","Fehler","Einladung","Entwicklung","L\xf6sung","Schritt","Ordnung","Farbe","Liebe","Magie","Hexerei","Wunder","Wunsch","Roboter","Ticket","Anfang","Ende"]');
 
-//# sourceMappingURL=index.975ef6c8.js.map
+},{}],"cAlFN":[function(require,module,exports) {
+var _renderBooks = require("./renderBooks");
+var _modal = require("./modal");
+const LIBRARY_LIST = "library";
+const localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
+const libraryEl = document.querySelector(".loc-library__list");
+if (localArr !== null) libraryEl.innerHTML = (0, _renderBooks.renderBooks)(localArr, "library", false, false);
+libraryEl.addEventListener("click", (0, _modal.modalShow));
+
+},{"./renderBooks":"bhwKj","./modal":"cmqWk"}]},["bGq9P","hjkgY"], "hjkgY", "parcelRequire78ed")
+
+//# sourceMappingURL=library.3ec96094.js.map
