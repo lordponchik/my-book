@@ -1,10 +1,7 @@
 import svg from '../image/no-image-placeholder.svg';
-import { isBookInLibrary } from './localList';
 
-export function renderBooks(items, name = 'book', descr = false, modal = false) {
+export function renderBooks(items, name = 'book', descr = false, modal = false, obj = {}) {
   if (modal === true) {
-    const isInLibrary = isBookInLibrary(items);
-
     return `
   <div class="${name}" data-id="${items.id}">
              <div class="${name}__img"><img src="${thumbnail(
@@ -15,12 +12,7 @@ export function renderBooks(items, name = 'book', descr = false, modal = false) 
                 <p class="${name}__author">${isAuthor(items.volumeInfo.authors)}</p>
                 <p class="${name}__date">${isDate(items.volumeInfo.publishedDate)}</p>
                 <p class="${name}__description">${isDescr(items.volumeInfo.description)}</p>
-                <button type="button" class="${name}__btn ${
-      isInLibrary === false ? '' : 'hidden'
-    }"  data-name="add" data-id="${items.id}">add book from library</button>
-      <button type="button" class="${name}__btn ${
-      isInLibrary === true ? '' : 'hidden'
-    }" data-name="remove" data-id="${items.id}">remove book from library</button>
+                ${obj.createBtn(name)}
               </div>
             </div>`;
   }
@@ -34,7 +26,7 @@ export function renderBooks(items, name = 'book', descr = false, modal = false) 
               <div class="${name}__wrapper">
                 <h3 class="${name}__name">${isTitle(item.volumeInfo.title)}</h3>
                 <p class="${name}__author">${isAuthor(item.volumeInfo.authors)}</p>
-                <p class="${name}__date">${isDate(item.volumeInfo.publishedDate)}</p>     
+                <p class="${name}__date">${isDate(item.volumeInfo.publishedDate)}</p>
               </div></div>
               ${
                 descr
