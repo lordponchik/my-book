@@ -1,123 +1,55 @@
 import { renderBooks } from './renderBooks';
 
 const LIBRARY_LIST = 'library';
-
 let temporaryСell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-let isInLibrary = false;
 
-function addBook(e) {
-  let localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-
-  const addId = temporaryСell.find(el => el.id === e.target.getAttribute('data-id'));
-
-  localArr.push(addId);
-  localStorage.setItem(LIBRARY_LIST, JSON.stringify(localArr));
-
-  if (
-    document.querySelector('.backdrop.show') !== null &&
-    document
-      .querySelector('.backdrop.show')
-      .querySelector('button[data-name="add"]')
-      .getAttribute('data-id') ===
-      document.querySelector('button[data-name="add"]').getAttribute('data-id')
-  ) {
-    document.querySelector('button[data-name="add"]').classList.add('hidden');
-    document.querySelector('button[data-name="remove"]').classList.remove('hidden');
+export class objBook {
+  constructor(book) {
+    this.book = book;
+    this.id = this.book.id;
+    this.btns = null;
+  }
+  createBtn(name) {
+    temporaryСell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
+    if (temporaryСell.find(el => el.id === this.id)) {
+      return `<button type="button" class="${name}__btn" data-id="${this.id}">remove book from library</button>`;
+    }
+    return `<button type="button" class="${name}__btn" data-id="${this.id}">add book to library</button>`;
   }
 
-  e.target.classList.add('hidden');
-  e.target.nextElementSibling.classList.remove('hidden');
+  addEvent() {
+    this.btns = [...document.querySelectorAll(`button[data-id="${this.id}"]`)];
 
-  const libraryEl = document.querySelector('.loc-library__list');
+    this.btns[this.btns.length === 1 ? 0 : 1].addEventListener('click', e => {
+      if (e.currentTarget.textContent === 'add book to library') {
+        temporaryСell.push(this.book);
+        localStorage.setItem(LIBRARY_LIST, JSON.stringify(temporaryСell));
+        this.btns.forEach(bt => {
+          bt.textContent = 'remove book from library';
+        });
 
-  if (libraryEl !== null) {
-    libraryEl.innerHTML = '';
-    libraryEl.innerHTML = renderBooks(localArr, 'library', false, false);
+        const libraryEl = document.querySelector('.loc-library__list');
+
+        if (libraryEl !== null) {
+          libraryEl.innerHTML = '';
+          libraryEl.innerHTML = renderBooks(temporaryСell, 'library', false, false);
+        }
+      } else if (e.currentTarget.textContent === 'remove book from library') {
+        temporaryСell.splice(
+          temporaryСell.findIndex(el => el.id === this.id),
+          1
+        );
+        localStorage.setItem(LIBRARY_LIST, JSON.stringify(temporaryСell));
+        this.btns.forEach(bt => {
+          bt.textContent = 'add book to library';
+        });
+        const libraryEl = document.querySelector('.loc-library__list');
+
+        if (libraryEl !== null) {
+          libraryEl.innerHTML = '';
+          libraryEl.innerHTML = renderBooks(temporaryСell, 'library', false, false);
+        }
+      }
+    });
   }
-
-  localArr = [];
-}
-function removeBook(e) {
-  let localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
-
-  localArr.splice(
-    localArr.findIndex(el => el.id === e.target.getAttribute('data-id')),
-    1
-  );
-
-  localStorage.setItem(LIBRARY_LIST, JSON.stringify(localArr));
-
-  if (
-    document.querySelector('.backdrop.show') &&
-    document
-      .querySelector('.backdrop.show')
-      .querySelector('button[data-name="remove"]')
-      .getAttribute('data-id') ===
-      document.querySelector('button[data-name="remove"]').getAttribute('data-id')
-  ) {
-    document.querySelector('button[data-name="remove"]').classList.add('hidden');
-    document.querySelector('button[data-name="add"]').classList.remove('hidden');
-  }
-
-  e.target.classList.add('hidden');
-  e.target.previousElementSibling.classList.remove('hidden');
-
-  const libraryEl = document.querySelector('.loc-library__list');
-
-  if (libraryEl !== null) {
-    libraryEl.innerHTML = '';
-    libraryEl.innerHTML = renderBooks(localArr, 'library', false, false);
-  }
-
-  localArr = [];
-}
-
-export function isBookInLibrary(book) {
-  if (!temporaryСell.some(el => el.id === book.id)) {
-    temporaryСell.push(book);
-  }
-
-  const localeList = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-
-  isInLibrary = localeList.some(el => el.id === book.id);
-
-  return isInLibrary;
-}
-
-export function loadBtn(e) {
-  const buttonsEl = {
-    addBookEl: document.querySelector('button[data-name="add"]'),
-    removeBookEl: document.querySelector('button[data-name="remove"]'),
-  };
-
-  buttonsEl.addBookEl.addEventListener('click', addBook);
-  buttonsEl.removeBookEl.addEventListener('click', removeBook);
-}
-
-export function loadModalBtn(e) {
-  if (document.querySelector('.backdrop.show') !== null) {
-    const buttonsModalEl = {
-      addBookEl: document.querySelector('.backdrop.show').querySelector('button[data-name="add"]'),
-      removeBookEl: document
-        .querySelector('.backdrop.show')
-        .querySelector('button[data-name="remove"]'),
-    };
-
-    buttonsModalEl.addBookEl.addEventListener('click', addBook);
-    buttonsModalEl.removeBookEl.addEventListener('click', removeBook);
-
-    return;
-  }
-
-  const buttonsModalEl = {
-    addBookEl: document.querySelector('.backdrop.show').querySelector('button[data-name="add"]'),
-    removeBookEl: document
-      .querySelector('.backdrop.show')
-      .querySelector('button[data-name="remove"]'),
-  };
-
-  buttonsModalEl.addBookEl.removeEventListener('click', addBook);
-  buttonsModalEl.removeBookEl.removeEventListener('click', e => {
-    removeBook();
-  });
 }

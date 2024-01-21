@@ -1,14 +1,16 @@
 import { fetchRandomBook } from './booksAPI';
 import { renderBooks } from './renderBooks';
 import dictionary from './dictionary.json';
-import { loadBtn } from './localList';
+import { objBook } from './localList';
 
 const heroEl = document.querySelector('.rndbook');
 const randomBtnEl = document.querySelector('.btn-random');
 
 fetchRandomBook(randomName()).then(item => {
-  heroEl.innerHTML = renderBooks(item[0], 'random-book', true, true);
-  loadBtn();
+  const obj_book = new objBook(item[0]);
+  heroEl.innerHTML = renderBooks(item[0], 'random-book', true, true, obj_book);
+
+  obj_book.addEvent();
 });
 
 randomBtnEl.addEventListener('click', e => {
@@ -17,8 +19,10 @@ randomBtnEl.addEventListener('click', e => {
   heroEl.innerHTML = '';
 
   fetchRandomBook(randomName()).then(item => {
-    heroEl.innerHTML = renderBooks(item[0], 'random-book', true, true);
-    loadBtn();
+    const obj_book = new objBook(item[0]);
+
+    heroEl.innerHTML = renderBooks(item[0], 'random-book', true, true, obj_book);
+    obj_book.addEvent();
   });
 });
 
