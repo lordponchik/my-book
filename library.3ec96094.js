@@ -591,15 +591,17 @@ var _localList = require("./localList");
 const heroEl = document.querySelector(".rndbook");
 const randomBtnEl = document.querySelector(".btn-random");
 (0, _booksAPI.fetchRandomBook)(randomName()).then((item)=>{
-    heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true);
-    (0, _localList.loadBtn)();
+    const obj_book = new (0, _localList.objBook)(item[0]);
+    heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true, obj_book);
+    obj_book.addEvent();
 });
 randomBtnEl.addEventListener("click", (e)=>{
     e.preventDefault();
     heroEl.innerHTML = "";
     (0, _booksAPI.fetchRandomBook)(randomName()).then((item)=>{
-        heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true);
-        (0, _localList.loadBtn)();
+        const obj_book = new (0, _localList.objBook)(item[0]);
+        heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true, obj_book);
+        obj_book.addEvent();
     });
 });
 function randomName() {

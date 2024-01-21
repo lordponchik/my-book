@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"9fKPd":[function(require,module,exports) {
+})({"eTeXe":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "54c759b5b8d2c528";
+module.bundle.HMR_BUNDLE_ID = "b43e12903da68470";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -5102,10 +5102,10 @@ function isDate(date) {
     return date;
 }
 
-},{"../image/no-image-placeholder.svg":"64l8W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"64l8W":[function(require,module,exports) {
-module.exports = require("13d15051b63a632").getBundleURL("7hh3t") + "no-image-placeholder.39dde084.svg" + "?" + Date.now();
+},{"../image/no-image-placeholder.svg":"70RZ5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"70RZ5":[function(require,module,exports) {
+module.exports = require("a98578f487163dc6").getBundleURL("ftqrf") + "no-image-placeholder.39dde084.svg" + "?" + Date.now();
 
-},{"13d15051b63a632":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"a98578f487163dc6":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -5140,62 +5140,12 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"8IMTK":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "objBook", ()=>objBook);
-var _renderBooks = require("./renderBooks");
-const LIBRARY_LIST = "library";
-let temporary\u0421ell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-class objBook {
-    constructor(book){
-        this.book = book;
-        this.id = this.book.id;
-        this.btns = null;
-    }
-    createBtn(name) {
-        temporary\u0421ell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-        if (temporary\u0421ell.find((el)=>el.id === this.id)) return `<button type="button" class="${name}__btn" data-id="${this.id}">remove book from library</button>`;
-        return `<button type="button" class="${name}__btn" data-id="${this.id}">add book to library</button>`;
-    }
-    addEvent() {
-        this.btns = [
-            ...document.querySelectorAll(`button[data-id="${this.id}"]`)
-        ];
-        this.btns[this.btns.length === 1 ? 0 : 1].addEventListener("click", (e)=>{
-            if (e.currentTarget.textContent === "add book to library") {
-                temporary\u0421ell.push(this.book);
-                localStorage.setItem(LIBRARY_LIST, JSON.stringify(temporary\u0421ell));
-                this.btns.forEach((bt)=>{
-                    bt.textContent = "remove book from library";
-                });
-                const libraryEl = document.querySelector(".loc-library__list");
-                if (libraryEl !== null) {
-                    libraryEl.innerHTML = "";
-                    libraryEl.innerHTML = (0, _renderBooks.renderBooks)(temporary\u0421ell, "library", false, false);
-                }
-            } else if (e.currentTarget.textContent === "remove book from library") {
-                temporary\u0421ell.splice(temporary\u0421ell.findIndex((el)=>el.id === this.id), 1);
-                localStorage.setItem(LIBRARY_LIST, JSON.stringify(temporary\u0421ell));
-                this.btns.forEach((bt)=>{
-                    bt.textContent = "add book to library";
-                });
-                const libraryEl = document.querySelector(".loc-library__list");
-                if (libraryEl !== null) {
-                    libraryEl.innerHTML = "";
-                    libraryEl.innerHTML = (0, _renderBooks.renderBooks)(temporary\u0421ell, "library", false, false);
-                }
-            }
-        });
-    }
-}
-
-},{"./renderBooks":"bhwKj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cmqWk":[function(require,module,exports) {
+},{}],"cmqWk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "modalShow", ()=>modalShow);
 var _booksAPI = require("./booksAPI");
-var _localList = require("./localList");
+// import { objBook } from './localList';
 var _renderBooks = require("./renderBooks");
 const backdropEl = document.querySelector(".backdrop");
 const backdropBtnCloseEl = document.querySelector(".backdrop__close");
@@ -5207,9 +5157,9 @@ function modalShow(e) {
     backdropEl.classList.add("show");
     bodyHidden();
     (0, _booksAPI.fetchBook)(item.getAttribute("data-id")).then((data)=>{
-        const obj_book = new (0, _localList.objBook)(data);
-        backdropEl.firstElementChild.lastElementChild.innerHTML = (0, _renderBooks.renderBooks)(data, "book", true, true, obj_book);
-        obj_book.addEvent();
+        // const obj_book = new objBook(data);
+        backdropEl.firstElementChild.lastElementChild.innerHTML = (0, _renderBooks.renderBooks)(data, "book", true, true);
+    // obj_book.addEvent();
     });
 }
 function backdropHidden(e) {
@@ -5227,6 +5177,6 @@ function bodyHidden() {
     backdropEl.classList.contains("show") ? document.body.style.overflow = "hidden" : document.body.style.removeProperty("overflow");
 }
 
-},{"./booksAPI":"lhp3x","./renderBooks":"bhwKj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./localList":"8IMTK"}]},["9fKPd"], null, "parcelRequire78ed")
+},{"./booksAPI":"lhp3x","./renderBooks":"bhwKj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["eTeXe"], null, "parcelRequire78ed")
 
-//# sourceMappingURL=library.b8d2c528.js.map
+//# sourceMappingURL=library.3da68470.js.map

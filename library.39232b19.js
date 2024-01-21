@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"9fKPd":[function(require,module,exports) {
+})({"15ibv":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "54c759b5b8d2c528";
+module.bundle.HMR_BUNDLE_ID = "f315c6c439232b19";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -5062,7 +5062,7 @@ function renderBooks(items, name = "book", descr = false, modal = false, obj = {
                 <p class="${name}__author">${isAuthor(items.volumeInfo.authors)}</p>
                 <p class="${name}__date">${isDate(items.volumeInfo.publishedDate)}</p>
                 <p class="${name}__description">${isDescr(items.volumeInfo.description)}</p>
-                ${obj.createBtn(name)}
+                ${obj.createBtn(items, name)}
               </div>
             </div>`;
     return items.map((item)=>{
@@ -5102,10 +5102,10 @@ function isDate(date) {
     return date;
 }
 
-},{"../image/no-image-placeholder.svg":"64l8W","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"64l8W":[function(require,module,exports) {
-module.exports = require("13d15051b63a632").getBundleURL("7hh3t") + "no-image-placeholder.39dde084.svg" + "?" + Date.now();
+},{"../image/no-image-placeholder.svg":"enICW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"enICW":[function(require,module,exports) {
+module.exports = require("b04580ba7981077f").getBundleURL("kRW2l") + "no-image-placeholder.39dde084.svg" + "?" + Date.now();
 
-},{"13d15051b63a632":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"b04580ba7981077f":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -5140,57 +5140,7 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"8IMTK":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "objBook", ()=>objBook);
-var _renderBooks = require("./renderBooks");
-const LIBRARY_LIST = "library";
-let temporary\u0421ell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-class objBook {
-    constructor(book){
-        this.book = book;
-        this.id = this.book.id;
-        this.btns = null;
-    }
-    createBtn(name) {
-        temporary\u0421ell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-        if (temporary\u0421ell.find((el)=>el.id === this.id)) return `<button type="button" class="${name}__btn" data-id="${this.id}">remove book from library</button>`;
-        return `<button type="button" class="${name}__btn" data-id="${this.id}">add book to library</button>`;
-    }
-    addEvent() {
-        this.btns = [
-            ...document.querySelectorAll(`button[data-id="${this.id}"]`)
-        ];
-        this.btns[this.btns.length === 1 ? 0 : 1].addEventListener("click", (e)=>{
-            if (e.currentTarget.textContent === "add book to library") {
-                temporary\u0421ell.push(this.book);
-                localStorage.setItem(LIBRARY_LIST, JSON.stringify(temporary\u0421ell));
-                this.btns.forEach((bt)=>{
-                    bt.textContent = "remove book from library";
-                });
-                const libraryEl = document.querySelector(".loc-library__list");
-                if (libraryEl !== null) {
-                    libraryEl.innerHTML = "";
-                    libraryEl.innerHTML = (0, _renderBooks.renderBooks)(temporary\u0421ell, "library", false, false);
-                }
-            } else if (e.currentTarget.textContent === "remove book from library") {
-                temporary\u0421ell.splice(temporary\u0421ell.findIndex((el)=>el.id === this.id), 1);
-                localStorage.setItem(LIBRARY_LIST, JSON.stringify(temporary\u0421ell));
-                this.btns.forEach((bt)=>{
-                    bt.textContent = "add book to library";
-                });
-                const libraryEl = document.querySelector(".loc-library__list");
-                if (libraryEl !== null) {
-                    libraryEl.innerHTML = "";
-                    libraryEl.innerHTML = (0, _renderBooks.renderBooks)(temporary\u0421ell, "library", false, false);
-                }
-            }
-        });
-    }
-}
-
-},{"./renderBooks":"bhwKj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cmqWk":[function(require,module,exports) {
+},{}],"cmqWk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "modalShow", ()=>modalShow);
@@ -5209,7 +5159,7 @@ function modalShow(e) {
     (0, _booksAPI.fetchBook)(item.getAttribute("data-id")).then((data)=>{
         const obj_book = new (0, _localList.objBook)(data);
         backdropEl.firstElementChild.lastElementChild.innerHTML = (0, _renderBooks.renderBooks)(data, "book", true, true, obj_book);
-        obj_book.addEvent();
+        console.log(obj_book.id);
     });
 }
 function backdropHidden(e) {
@@ -5227,6 +5177,124 @@ function bodyHidden() {
     backdropEl.classList.contains("show") ? document.body.style.overflow = "hidden" : document.body.style.removeProperty("overflow");
 }
 
-},{"./booksAPI":"lhp3x","./renderBooks":"bhwKj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./localList":"8IMTK"}]},["9fKPd"], null, "parcelRequire78ed")
+},{"./booksAPI":"lhp3x","./renderBooks":"bhwKj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./localList":"8IMTK"}],"8IMTK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "objBook", ()=>objBook) // let isInLibrary = false;
+ // function addBook(e) {
+ //   let localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
+ //   const addId = temporaryСell.find(el => el.id === e.target.getAttribute('data-id'));
+ //   localArr.push(addId);
+ //   localStorage.setItem(LIBRARY_LIST, JSON.stringify(localArr));
+ //   if (
+ //     document.querySelector('.backdrop.show') !== null &&
+ //     document
+ //       .querySelector('.backdrop.show')
+ //       .querySelector('button[data-name="add"]')
+ //       .getAttribute('data-id') ===
+ //       document.querySelector('button[data-name="add"]').getAttribute('data-id')
+ //   ) {
+ //     document.querySelector('button[data-name="add"]').classList.add('hidden');
+ //     document.querySelector('button[data-name="remove"]').classList.remove('hidden');
+ //   }
+ //   e.target.classList.add('hidden');
+ //   e.target.nextElementSibling.classList.remove('hidden');
+ //   const libraryEl = document.querySelector('.loc-library__list');
+ //   if (libraryEl !== null) {
+ //     libraryEl.innerHTML = '';
+ //     libraryEl.innerHTML = renderBooks(localArr, 'library', false, false);
+ //   }
+ //   localArr = [];
+ // }
+ // function removeBook(e) {
+ //   let localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
+ //   localArr.splice(
+ //     localArr.findIndex(el => el.id === e.target.getAttribute('data-id')),
+ //     1
+ //   );
+ //   localStorage.setItem(LIBRARY_LIST, JSON.stringify(localArr));
+ //   if (
+ //     document.querySelector('.backdrop.show') &&
+ //     document
+ //       .querySelector('.backdrop.show')
+ //       .querySelector('button[data-name="remove"]')
+ //       .getAttribute('data-id') ===
+ //       document.querySelector('button[data-name="remove"]').getAttribute('data-id')
+ //   ) {
+ //     document.querySelector('button[data-name="remove"]').classList.add('hidden');
+ //     document.querySelector('button[data-name="add"]').classList.remove('hidden');
+ //   }
+ //   e.target.classList.add('hidden');
+ //   e.target.previousElementSibling.classList.remove('hidden');
+ //   const libraryEl = document.querySelector('.loc-library__list');
+ //   if (libraryEl !== null) {
+ //     libraryEl.innerHTML = '';
+ //     libraryEl.innerHTML = renderBooks(localArr, 'library', false, false);
+ //   }
+ //   localArr = [];
+ // }
+ // export function isBookInLibrary(book) {
+ //   if (!temporaryСell.some(el => el.id === book.id)) {
+ //     temporaryСell.push(book);
+ //   }
+ //   const localeList = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
+ //   isInLibrary = localeList.some(el => el.id === book.id);
+ //   return isInLibrary;
+ // }
+ // export function loadBtn(e) {
+ //   const buttonsEl = {
+ //     addBookEl: document.querySelector('button[data-name="add"]'),
+ //     removeBookEl: document.querySelector('button[data-name="remove"]'),
+ //   };
+ //   buttonsEl.addBookEl.addEventListener('click', addBook);
+ //   buttonsEl.removeBookEl.addEventListener('click', removeBook);
+ // }
+ // export function loadModalBtn(e) {
+ //   if (document.querySelector('.backdrop.show') !== null) {
+ //     const buttonsModalEl = {
+ //       addBookEl: document.querySelector('.backdrop.show').querySelector('button[data-name="add"]'),
+ //       removeBookEl: document
+ //         .querySelector('.backdrop.show')
+ //         .querySelector('button[data-name="remove"]'),
+ //     };
+ //     buttonsModalEl.addBookEl.addEventListener('click', addBook);
+ //     buttonsModalEl.removeBookEl.addEventListener('click', removeBook);
+ //     return;
+ //   }
+ //   const buttonsModalEl = {
+ //     addBookEl: document.querySelector('.backdrop.show').querySelector('button[data-name="add"]'),
+ //     removeBookEl: document
+ //       .querySelector('.backdrop.show')
+ //       .querySelector('button[data-name="remove"]'),
+ //   };
+ //   buttonsModalEl.addBookEl.removeEventListener('click', addBook);
+ //   buttonsModalEl.removeBookEl.removeEventListener('click', e => {
+ //     removeBook();
+ //   });
+ // }
+;
+var _renderBooks = require("./renderBooks");
+const LIBRARY_LIST = "library";
+let temporary\u0421ell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
+class objBook {
+    constructor(book){
+        this.book = book;
+        this.id = this.book.id;
+        this.btn = null;
+    }
+    //             <button type="button" class="${name}__btn data-id="${
+    //   items.id
+    // }">add book from library</button>
+    createBtn(items, name) {
+        if (temporary\u0421ell.find((el)=>el.id === this.id)) return `<button type="button" class="${name}__btn" data-id=${items.id}">remove book from library</button>`;
+        return `<button type="button" class="${name}__btn" id="${items.id}">add book to library</button>`;
+    }
+    addEvent() {
+        this.btn = document.querySelector(`#${this.id}`);
+        console.log(this.id);
+    }
+}
 
-//# sourceMappingURL=library.b8d2c528.js.map
+},{"./renderBooks":"bhwKj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["15ibv"], null, "parcelRequire78ed")
+
+//# sourceMappingURL=library.39232b19.js.map
