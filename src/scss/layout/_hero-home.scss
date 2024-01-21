@@ -8,10 +8,16 @@
   background-size: contain;
   background-color: var(--accent-background-color);
 }
+.hero__description {
+  @media screen and (max-width: 767px) {
+    text-align: center;
+    background-color: var(--accent-background-hero-color);
+  }
+}
 .hero__title {
   margin-bottom: 25px;
 
-  font-size: 65px;
+  font-size: 30px;
   line-height: 1.3;
   text-transform: uppercase;
   color: var(--secondary-text-color);
@@ -20,6 +26,10 @@
     font-family: var(--secondary-font-family);
     text-shadow: 2px 1px 1px var(--secondary-text-color);
     color: var(--accent-color);
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 65px;
   }
 }
 .hero__text {

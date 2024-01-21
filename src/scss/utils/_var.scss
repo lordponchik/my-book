@@ -4,12 +4,14 @@ $primary-font-family: 'Poppins', sans-serif;
 $primary-background-color-light: #ffffff;
 $secondary-background-color-light: #f5f6f8;
 $accent-background-color-light: #f5ffff;
+$accent-background-hero-color-light: #f5ffffa4;
 $primary-text-color-light: rgba(0, 0, 0, 0.48);
 $secondary-text-color-light: #292929;
 $box-shadow-color-light: rgba(120, 120, 120, 0.6);
 
 $primary-background-color-dark: #141414;
 $secondary-background-color-dark: #0f0f0f;
+$accent-background-hero-color-dark: #1a1a1aa4;
 $accent-background-color-dark: #1a1a1a;
 $primary-text-color-dark: rgba(161, 161, 161, 0.48);
 $secondary-text-color-dark: #ffffff;
@@ -20,6 +22,7 @@ $accent-color: #fb635d;
 :root[data-theme='light'] {
   --primary-background-color: #{$primary-background-color-light};
   --secondary-background-color: #{$secondary-background-color-light};
+  --accent-background-hero-color: #{$accent-background-hero-color-light};
   --accent-background-color: #{$accent-background-color-light};
   --primary-text-color: #{$primary-text-color-light};
   --secondary-text-color: #{$secondary-text-color-light};
@@ -29,6 +32,7 @@ $accent-color: #fb635d;
 :root[data-theme='dark'] {
   --primary-background-color: #{$primary-background-color-dark};
   --secondary-background-color: #{$secondary-background-color-dark};
+  --accent-background-hero-color: #{$accent-background-hero-color-dark};
   --accent-background-color: #{$accent-background-color-dark};
   --primary-text-color: #{$primary-text-color-dark};
   --secondary-text-color: #{$secondary-text-color-dark};
