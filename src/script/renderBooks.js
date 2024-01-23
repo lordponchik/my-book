@@ -19,7 +19,7 @@ export function renderBooks(items, name = 'book', descr = false, modal = false, 
 
   return items
     .map(item => {
-      return `<li class="${name}" data-id="${item.id}">
+      return `<div class="${name}" data-id="${item.id}">
            <div class="${name}__container"><div class="${name}__img"><img src="${thumbnail(
         item.volumeInfo
       )}" alt="" width="100"></div>
@@ -33,7 +33,7 @@ export function renderBooks(items, name = 'book', descr = false, modal = false, 
                   ? ` <p class="${name}__description">${isDescr(item.volumeInfo.description)}</p>`
                   : ''
               }
-              </li>`;
+              </div>`;
     })
     .join('');
 }
