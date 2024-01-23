@@ -707,6 +707,7 @@ img {
   cursor: pointer;
   border-style: none;
   padding: 10px;
+  font-size: 25px;
   transition: color .25s linear;
   position: fixed;
   bottom: 50px;

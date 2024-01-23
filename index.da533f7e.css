@@ -378,24 +378,41 @@ img {
   align-items: baseline;
   margin-bottom: 20px;
   font-family: Righteous, sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   display: inline-flex;
+}
+
+@media screen and (width >= 1280px) {
+  .book-series__title {
+    font-size: 40px;
+  }
 }
 
 .book-series__title--word:not(.anim-letter):first-letter {
   color: var(--accent-color);
   text-shadow: 2px 1px 1px var(--secondary-text-color);
-  font-size: 60px;
+  font-size: 40px;
+}
+
+@media screen and (width >= 1280px) {
+  .book-series__title--word:not(.anim-letter):first-letter {
+    font-size: 60px;
+  }
 }
 
 .book-series__title--article:first-letter {
-  font-size: 60px;
+  font-size: 40px;
+}
+
+@media screen and (width >= 1280px) {
+  .book-series__title--article:first-letter {
+    font-size: 60px;
+  }
 }
 
 .book-series__list {
   z-index: 100;
   background-color: var(--primary-background-color);
-  box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
   position: relative;
 }
 
@@ -474,6 +491,7 @@ img {
 
 .book-series__list {
   height: 420px;
+  margin-bottom: 10px;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -591,19 +609,32 @@ img {
   }
 }
 
-.potter:before {
+.potter__book-series {
+  position: relative;
+}
+
+.potter__book-series:before {
   content: "";
   opacity: 1;
   background-image: url("boy-on-book.2ca2360e.svg");
   background-repeat: no-repeat;
   background-size: 100%;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   animation: 6s cubic-bezier(.455, .03, .515, .955) infinite animBoyFlight;
   position: absolute;
-  top: -160px;
-  right: 50%;
+  top: -50px;
+  right: 100%;
   transform: translate(0);
+}
+
+@media screen and (width >= 1280px) {
+  .potter__book-series:before {
+    width: 150px;
+    height: 150px;
+    top: -160px;
+    right: 50%;
+  }
 }
 
 .ice {
@@ -620,8 +651,14 @@ img {
   animation: 2.1s infinite both bounce-in-top;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -35%;
   transform: translateY(0);
+}
+
+@media screen and (width >= 1280px) {
+  .ice:before {
+    left: 0;
+  }
 }
 
 .fire {
@@ -640,27 +677,42 @@ img {
   animation: 3s linear infinite both flicker-in-1;
   position: absolute;
   bottom: -50px;
-  left: 0;
+  left: -35%;
   transform: scale(.8);
 }
 
-.witcher {
+@media screen and (width >= 1280px) {
+  .fire:before {
+    left: 0;
+  }
+}
+
+.witcher__book-series {
   position: relative;
 }
 
-.witcher:before {
+.witcher__book-series:before {
   content: "";
   opacity: 1;
   background-image: url("knight.8d7c402d.svg");
   background-repeat: no-repeat;
-  background-size: 150px;
-  width: 150px;
-  height: 150px;
+  background-size: 100px;
+  width: 100px;
+  height: 100px;
   animation: 4s linear infinite both knight;
   position: absolute;
-  top: -120px;
+  top: -15px;
   right: 0;
   transform: translateX(0)rotate(0);
+}
+
+@media screen and (width >= 1280px) {
+  .witcher__book-series:before {
+    background-size: 150px;
+    width: 150px;
+    height: 150px;
+    top: -120px;
+  }
 }
 
 .dark-tower {
@@ -678,14 +730,23 @@ img {
   z-index: 5;
   background-image: url("cowboy.8ecf955a.svg");
   background-repeat: no-repeat;
-  background-size: 300px;
-  width: 300px;
-  height: 300px;
+  background-size: 180px;
+  width: 180px;
+  height: 180px;
   animation: 4s cubic-bezier(.25, .46, .45, .94) infinite cowboy;
   position: absolute;
-  top: 200px;
+  top: 130px;
   right: -1%;
   transform: translateX(100%)rotate(0);
+}
+
+@media screen and (width >= 1280px) {
+  .cowboy:after {
+    background-size: 300px;
+    width: 300px;
+    height: 300px;
+    top: 200px;
+  }
 }
 
 .anim-letter-tower {
@@ -1124,6 +1185,7 @@ img {
   cursor: pointer;
   border-style: none;
   padding: 10px;
+  font-size: 25px;
   transition: color .25s linear;
   position: fixed;
   bottom: 50px;
