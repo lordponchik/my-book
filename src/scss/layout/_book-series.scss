@@ -10,17 +10,26 @@
   margin-bottom: 20px;
 
   font-family: $secondary-font-family;
-  font-size: 40px;
+  font-size: 30px;
   color: var(--secondary-text-color);
   background-color: var(--accent-background-color);
+  @media screen and (min-width: 1280px) {
+    font-size: 40px;
+  }
 
   &--word:not(.anim-letter)::first-letter {
-    font-size: 60px;
+    font-size: 40px;
     color: var(--accent-color);
     text-shadow: 2px 1px 1px var(--secondary-text-color);
+    @media screen and (min-width: 1280px) {
+      font-size: 60px;
+    }
   }
   &--article::first-letter {
-    font-size: 60px;
+    font-size: 40px;
+    @media screen and (min-width: 1280px) {
+      font-size: 60px;
+    }
   }
 }
 .book-series__list {
@@ -28,7 +37,7 @@
   z-index: 100;
 
   background-color: var(--primary-background-color);
-  box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
+  // box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
 
   @media screen and (min-width: 1280px) {
     display: flex;
@@ -97,6 +106,7 @@
   position: relative;
   overflow: hidden;
   height: 420px;
+  margin-bottom: 10px;
 }
 .book-series__list > .series {
   opacity: 0;
