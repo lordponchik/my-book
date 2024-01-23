@@ -87,25 +87,38 @@
   color: var(--accent-color);
 }
 
-// .controlls {
-//   display: flex;
-//   justify-content: space-between;
-//   padding: 0 15px;
-// }
-// .potter {
-//   overflow: hidden;
-// }
-// .prev {
-//   width: 20px;
-//   height: 20px;
+.controlls {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+.book-series__list {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+}
+.book-series__list > .series {
+  opacity: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+.book-series__list > .series.active {
+  opacity: 1;
+  width: 100%;
+}
+.prev {
+  width: 25px;
+  height: 25px;
 
-//   border-radius: 50%;
-//   border: 2px solid var(--accent-color);
-// }
-// .next {
-//   width: 20px;
-//   height: 20px;
+  border-radius: 50% 0 0 50%;
+  border: 2px solid var(--accent-color);
+}
+.next {
+  width: 25px;
+  height: 25px;
 
-//   border-radius: 50%;
-//   border: 2px solid var(--accent-color);
-// }
+  border-radius: 0 50% 50% 0;
+  border: 2px solid var(--accent-color);
+}
