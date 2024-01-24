@@ -37,7 +37,7 @@
   z-index: 100;
 
   background-color: var(--primary-background-color);
-  // box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
+  box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
 
   @media screen and (min-width: 1280px) {
     display: flex;
