@@ -413,6 +413,7 @@ img {
 .book-series__list {
   z-index: 100;
   background-color: var(--primary-background-color);
+  box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
   position: relative;
 }
 
@@ -693,6 +694,7 @@ img {
 
 .witcher__book-series:before {
   content: "";
+  z-index: 1;
   opacity: 1;
   background-image: url("knight.8d7c402d.svg");
   background-repeat: no-repeat;
