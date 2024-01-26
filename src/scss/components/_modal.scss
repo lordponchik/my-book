@@ -26,6 +26,7 @@
   top: 0;
   left: 0;
   right: 0;
+  overflow-y: auto;
 
   transform: translate(0, -100%);
 
@@ -33,13 +34,12 @@
 
   background-color: var(--primary-background-color);
 
-  @media screen and (max-width: 599px) {
-    overflow-y: auto;
+  @media screen and (max-width: 1279px) {
     max-height: 100vh;
     height: 100vh;
     bottom: 0;
   }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 1280px) {
     height: auto;
     max-height: 80%;
   }
