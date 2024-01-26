@@ -18,7 +18,7 @@
   }
   @media screen and (min-width: 1280px) {
     &::before {
-      top: -160px;
+      top: -80px;
       right: 50%;
       width: 150px;
       height: 150px;
@@ -93,7 +93,7 @@
 
     animation: knight 4s linear both infinite;
     @media screen and (min-width: 1280px) {
-      top: -120px;
+      top: -30px;
 
       width: 150px;
       height: 150px;
