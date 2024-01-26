@@ -11,22 +11,25 @@ const darkTowerEl = document.querySelector('.dark-tower');
 
 fetchBooksCategory('harry+potter').then(items => {
   potterEl.innerHTML = renderBooks(items, 'series');
-  sliderBooks('potter', 'series');
+  addSlider('potter', 'series');
 });
 
 fetchBooksCategory('a+song+of+ice+and+fire').then(items => {
   icefireEl.innerHTML = renderBooks(items, 'series');
-  sliderBooks('icefire', 'series');
+  addSlider('icefire', 'series');
 });
 fetchBooksCategory('the+witcher').then(items => {
   witcherEl.innerHTML = renderBooks(items, 'series');
-  sliderBooks('witcher', 'series');
+  addSlider('witcher', 'series');
 });
 fetchBooksCategory('the+dark+tower').then(items => {
   darkTowerEl.innerHTML = renderBooks(items, 'series');
-  sliderBooks('dark-tower', 'series');
+  addSlider('dark-tower', 'series');
 });
 
 seriesEl.forEach(el => {
   el.addEventListener('click', modalShow, true);
 });
+function addSlider(cat, child) {
+  sliderBooks(cat, child);
+}
