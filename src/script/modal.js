@@ -11,11 +11,10 @@ backdropBtnCloseEl.addEventListener('click', backdropClose);
 export function modalShow(e) {
   if (e.target === e.currentTarget) return;
 
-  const item = e.target.closest('LI');
+  const item = e.target.closest('DIV').parentNode.parentNode;
 
   backdropEl.classList.add('show');
   bodyHidden();
-
   fetchBook(item.getAttribute('data-id')).then(data => {
     const obj_book = new objBook(data);
 
