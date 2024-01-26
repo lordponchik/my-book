@@ -139,10 +139,6 @@
   transform: translate(0, 0) rotate(0deg);
   animation: rotateT 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
 }
-.anim-letter-witcher {
-  opacity: 1;
-  animation: animLetterWitcher 3.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-}
 
 @keyframes animBoyFlight {
   0% {
@@ -371,49 +367,7 @@
     opacity: 0.5;
   }
 }
-// @keyframes animLetterWitcher {
-//   0% {
-//     transform: translateY(-100%);
-//     opacity: 0;
-//   }
-//   10% {
-//     transform: translateY(0);
-//     opacity: 1;
-//   }
-//   89% {
-//     transform: translateY(0);
-//   }
-//   90% {
-//     transform: translateY(0);
-//     opacity: 1;
-//   }
-//   100% {
-//     opacity: 0;
-//     transform: translateY(100%);
-//   }
-// }
-@keyframes animLetterWitcher {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  10% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  60% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  61% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-}
+
 @keyframes cowboy {
   0% {
     transform: translateX(100%) rotate(0);
