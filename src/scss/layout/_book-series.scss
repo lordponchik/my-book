@@ -37,14 +37,15 @@
   z-index: 100;
   display: flex;
   overflow: hidden;
-  height: 420px;
-  margin-bottom: 10px;
 
   background-color: var(--primary-background-color);
   box-shadow: -5px -5px 5px -5px var(--box-shadow-color);
 
-  @media screen and (min-width: 1280px) {
-    display: flex;
+  @media screen and (max-width: 767px) {
+    height: 420px;
+    margin-bottom: 10px;
+  }
+  @media screen and (min-width: 768px) {
     flex-wrap: wrap;
     padding: 25px 20px;
     justify-content: space-between;
@@ -53,23 +54,27 @@
 }
 
 .book-series__list > .series {
-  opacity: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
+  @media screen and (max-width: 767px) {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
 
-  transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: opacity 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 }
 .book-series__list > .series.active {
-  opacity: 1;
-  width: 100%;
+  @media screen and (max-width: 767px) {
+    opacity: 1;
+    width: 100%;
+  }
 }
 .series {
   cursor: pointer;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
     width: calc((100% / 2) - 30px);
   }
 }
