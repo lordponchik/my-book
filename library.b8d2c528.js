@@ -5203,7 +5203,7 @@ backdropEl.addEventListener("click", backdropHidden);
 backdropBtnCloseEl.addEventListener("click", backdropClose);
 function modalShow(e) {
     if (e.target === e.currentTarget) return;
-    const item = e.target.closest("LI");
+    const item = e.target.closest("DIV").parentNode.parentNode;
     backdropEl.classList.add("show");
     bodyHidden();
     (0, _booksAPI.fetchBook)(item.getAttribute("data-id")).then((data)=>{

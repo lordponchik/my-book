@@ -592,23 +592,26 @@ const witcherEl = document.querySelector(".witcher");
 const darkTowerEl = document.querySelector(".dark-tower");
 (0, _booksAPI.fetchBooksCategory)("harry+potter").then((items)=>{
     potterEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
-    (0, _slider.sliderBooks)("potter", "series");
+    addSlider("potter", "series");
 });
 (0, _booksAPI.fetchBooksCategory)("a+song+of+ice+and+fire").then((items)=>{
     icefireEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
-    (0, _slider.sliderBooks)("icefire", "series");
+    addSlider("icefire", "series");
 });
 (0, _booksAPI.fetchBooksCategory)("the+witcher").then((items)=>{
     witcherEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
-    (0, _slider.sliderBooks)("witcher", "series");
+    addSlider("witcher", "series");
 });
 (0, _booksAPI.fetchBooksCategory)("the+dark+tower").then((items)=>{
     darkTowerEl.innerHTML = (0, _renderBooks.renderBooks)(items, "series");
-    (0, _slider.sliderBooks)("dark-tower", "series");
+    addSlider("dark-tower", "series");
 });
 seriesEl.forEach((el)=>{
     el.addEventListener("click", (0, _modal.modalShow), true);
 });
+function addSlider(cat, child) {
+    (0, _slider.sliderBooks)(cat, child);
+}
 
 },{"./booksAPI":"lhp3x","./modal":"cmqWk","./renderBooks":"bhwKj","./slider":"03I9a"}],"03I9a":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -618,9 +621,12 @@ function sliderBooks(category, classNameSlide) {
     const books = [
         ...document.querySelectorAll(`.${category} .${classNameSlide}`)
     ];
+    const categoryDiv = document.querySelector(`.${category}`);
+    addControlsBtn(categoryDiv);
     const controlls = [
         ...document.querySelector(`.${category}`).nextElementSibling.children
     ];
+    schowControllBtns();
     let slideIndex = 0;
     show(0);
     controlls.forEach((e)=>{
@@ -640,6 +646,24 @@ function sliderBooks(category, classNameSlide) {
         books[slideIndex].classList.remove("active");
         books[index].classList.add("active");
         slideIndex = index;
+    }
+    function addControlsBtn(categoryDiv) {
+        categoryDiv.insertAdjacentHTML("afterend", `<div class="controlls">
+                <div class="prev"></div>
+                <div class="next"></div>
+              </div>`);
+        window.matchMedia("(min-width: 768px)").addEventListener("change", (e)=>{
+            if (!e.matches) return;
+            controlls[0].parentNode.style.display = "none";
+        });
+        window.matchMedia("(max-width: 767px)").addEventListener("change", (e)=>{
+            if (!e.matches) return;
+            controlls[0].parentNode.style.display = "flex";
+        });
+    }
+    function schowControllBtns() {
+        if (window.innerWidth >= 768) controlls[0].parentNode.style.display = "none";
+        else if (window.innerWidth < 768) controlls[0].parentNode.style.display = "flex";
     }
 }
 

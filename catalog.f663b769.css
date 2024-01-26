@@ -188,7 +188,23 @@ img {
   padding-right: 10px;
 }
 
+@media screen and (width >= 400px) {
+  .container {
+    width: 400px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
 @media screen and (width >= 768px) {
+  .container {
+    width: 768px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media screen and (width >= 1280px) {
   .container {
     width: 1280px;
     padding-left: 140px;
@@ -359,13 +375,27 @@ img {
 .modal__wrapper {
   background-color: var(--primary-background-color);
   width: 100%;
-  height: auto;
-  max-height: 80%;
   position: relative;
   top: 0;
   left: 0;
   right: 0;
   transform: translate(0, -100%);
+}
+
+@media screen and (width <= 599px) {
+  .modal__wrapper {
+    height: 100vh;
+    max-height: 100vh;
+    bottom: 0;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (width >= 600px) {
+  .modal__wrapper {
+    height: auto;
+    max-height: 80%;
+  }
 }
 
 .backdrop__close {
@@ -378,6 +408,7 @@ img {
   align-items: center;
   width: 30px;
   height: 30px;
+  padding: 5px;
   display: inline-flex;
   position: absolute;
   top: 15px;
@@ -635,20 +666,48 @@ img {
 }
 
 .book {
-  box-shadow: 0px -8px 5px -5px var(--box-shadow-color) inset;
   justify-content: center;
   align-items: center;
   padding: 25px;
   display: flex;
 }
 
+@media screen and (width <= 599px) {
+  .book {
+    flex-direction: column;
+  }
+}
+
+@media screen and (width >= 600px) {
+  .book {
+    box-shadow: 0px -8px 5px -5px var(--box-shadow-color) inset;
+  }
+}
+
 .book__img {
   box-shadow: 7px 7px 5px -5px var(--box-shadow-color);
-  margin-right: 50px;
+}
+
+@media screen and (width <= 599px) {
+  .book__img {
+    width: 100px;
+  }
+}
+
+@media screen and (width >= 600px) {
+  .book__img {
+    margin-right: 50px;
+  }
 }
 
 .book__wrapper {
-  width: 70%;
+  width: 100%;
+}
+
+@media screen and (width >= 600px) {
+  .book__wrapper {
+    width: 70%;
+  }
 }
 
 .book__name {
@@ -660,6 +719,12 @@ img {
   color: var(--accent-color);
   font-family: Righteous, sans-serif;
   font-size: 40px;
+}
+
+@media screen and (width <= 599px) {
+  .book__name {
+    font-size: 18px;
+  }
 }
 
 .book__author {
@@ -701,14 +766,21 @@ img {
 }
 
 .btnUp {
-  z-index: 1001;
+  z-index: 500;
   color: var(--secondary-text-color);
   background-color: var(--accent-color);
   cursor: pointer;
   border-style: none;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
   padding: 10px;
+  font-family: Righteous, sans-serif;
   font-size: 25px;
+  font-weight: 500;
   transition: color .25s linear;
+  display: inline-flex;
   position: fixed;
   bottom: 50px;
   right: 50px;
