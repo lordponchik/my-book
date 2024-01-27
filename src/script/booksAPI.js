@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://www.googleapis.com/books/v1/';
+axios.defaults.baseURL = 'http://www.googleapis.com/books/v1/';
 
 export async function fetchBooksCategory(name) {
   const params = `volumes?q=intitle:${name}&printType=books&startIndex=${getRenderStartIndex(
