@@ -379,19 +379,19 @@ img {
   top: 0;
   left: 0;
   right: 0;
+  overflow-y: auto;
   transform: translate(0, -100%);
 }
 
-@media screen and (width <= 599px) {
+@media screen and (width <= 1279px) {
   .modal__wrapper {
     height: 100vh;
     max-height: 100vh;
     bottom: 0;
-    overflow-y: auto;
   }
 }
 
-@media screen and (width >= 600px) {
+@media screen and (width >= 1280px) {
   .modal__wrapper {
     height: auto;
     max-height: 80%;
