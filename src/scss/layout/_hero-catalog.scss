@@ -14,7 +14,14 @@
 }
 .hero__wrapper {
   height: inherit;
+  &::-webkit-scrollbar {
+    height: 5px;
+    background-color: var(--secondary-text-color);
+  }
 
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+  }
   &--genres {
     position: relative;
     background-image: url(../image/hero-catalog.svg);
