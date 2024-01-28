@@ -12,12 +12,19 @@
   align-items: center;
 }
 .sect-catalog__input {
-  min-width: 300px;
+  min-width: 200px;
   min-height: 40px;
   padding: 5px 20px;
   margin-right: 10px;
 
   font-size: 15px;
+
+  @media screen and (min-width: 768px) {
+    min-width: 300px;
+  }
+  @media screen and (min-width: 1280px) {
+    min-width: 350px;
+  }
 }
 .sect-catalog__submit {
   min-height: 40px;
@@ -43,17 +50,31 @@
 }
 
 .sect-catalog__wrapper {
-  display: flex;
-  padding: 30px 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-
   background-color: var(--secondary-background-color);
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding: 30px 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }
 .catalog {
-  flex-basis: calc((100% / 3) - 20px);
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% / 2) - 20px);
+  }
+  @media screen and (min-width: 1280px) {
+    flex-basis: calc((100% / 3) - 20px);
+  }
 }
 
 .catalog__container {
