@@ -639,7 +639,6 @@ async function fetchCatalog(name, num = 0) {
     const params = `volumes?q=${name}&printType=books&startIndex=${num}&maxResults=33`;
     const response = await (0, _axiosDefault.default).get(params);
     const data = await response.data;
-    total = data.totalItems;
     const items = await data.items;
     return items;
 }

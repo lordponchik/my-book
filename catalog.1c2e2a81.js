@@ -617,8 +617,8 @@ catalogEl.innerHTML = "";
 (0, _booksAPI.fetchCatalog)(search).then((data)=>{
     catalogEl.innerHTML = (0, _renderBooks.renderBooks)(data, "catalog");
 }).catch((error)=>{
-    catalogEl.innerHTML = `<p style="text-align:center;color: #fff;">OOPS... <br />
-We are very sorry!</p>`;
+    catalogEl.innerHTML = `<li style="text-align:center;color: #fff;">OOPS... <br />
+We are very sorry!</li>`;
 });
 catalogSubmit.addEventListener("click", renderCatalog);
 catalogInput.addEventListener("submit", renderCatalog);
@@ -630,9 +630,9 @@ function renderCatalog(e) {
         catalogEl.innerHTML = (0, _renderBooks.renderBooks)(data, "catalog");
         (0, _pagination.pagination).reset();
     }).catch((error)=>{
-        catalogEl.innerHTML = `<p style="text-align:center;color: #fff;">OOPS... <br />
+        catalogEl.innerHTML = `<li style="text-align:center;color: #fff;">OOPS... <br />
 We are very sorry!<br />
-We don\u{2019}t have any results matching your search.</p>`;
+We don\u{2019}t have any results matching your search.</li>`;
     });
 }
 catalogEl.addEventListener("click", (0, _modal.modalShow));
@@ -642,9 +642,9 @@ catalogEl.addEventListener("click", (0, _modal.modalShow));
     (0, _booksAPI.fetchCatalog)(search, num).then((data)=>{
         catalogEl.innerHTML = (0, _renderBooks.renderBooks)(data, "catalog");
     }).catch((error)=>{
-        catalogEl.innerHTML = `<p style="text-align:center;color: #fff;">OOPS... <br />
+        catalogEl.innerHTML = `<li style="text-align:center;color: #fff;">OOPS... <br />
 We are very sorry!<br />
-We don\u{2019}t have any results matching your search.</p>`;
+We don\u{2019}t have any results matching your search.</li>`;
     });
     window.scrollTo({
         top: catalogInput.getBoundingClientRect().y,
