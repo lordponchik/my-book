@@ -31,7 +31,10 @@ export async function fetchGenre(subject) {
 }
 
 export async function fetchCatalog(name, num = 0) {
-  const params = `volumes?q=${name}&printType=books&startIndex=${num}&maxResults=33`;
+  const maxResults =
+    window.innerWidth < 768 ? 8 : window.innerWidth >= 768 && window.innerWidth < 1280 ? 20 : 33;
+
+  const params = `volumes?q=${name}&printType=books&startIndex=${num}&maxResults=${maxResults}`;
   const response = await axios.get(params);
   const data = await response.data;
   const items = await data.items;
