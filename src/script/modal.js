@@ -16,7 +16,8 @@ export function modalShow(e) {
   backdropEl.classList.add('show');
   bodyHidden();
   fetchBook(item.getAttribute('data-id')).then(data => {
-    const obj_book = new objBook(data);
+    const obj_book = [];
+    obj_book.push(new objBook(data));
 
     backdropEl.firstElementChild.lastElementChild.innerHTML = renderBooks(
       data,
@@ -25,7 +26,7 @@ export function modalShow(e) {
       true,
       obj_book
     );
-    obj_book.addEvent();
+    obj_book[0].addEvent();
   });
 }
 

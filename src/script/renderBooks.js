@@ -1,6 +1,7 @@
 import svg from '../image/no-image-placeholder.svg';
+import { objBook } from './localList';
 
-export function renderBooks(items, name = 'book', descr = false, modal = false, obj = {}) {
+export function renderBooks(items, name = 'book', descr = false, modal = false, obj = []) {
   if (modal === true) {
     return `
   <div class="${name}" data-id="${items.id}">
@@ -12,13 +13,13 @@ export function renderBooks(items, name = 'book', descr = false, modal = false, 
                 <p class="${name}__author">${isAuthor(items.volumeInfo.authors)}</p>
                 <p class="${name}__date">${isDate(items.volumeInfo.publishedDate)}</p>
                 <p class="${name}__description">${isDescr(items.volumeInfo.description)}</p>
-                ${obj.createBtn(name)}
+                ${obj[0].createBtn(name)}
               </div>
             </div>`;
   }
 
   return items
-    .map(item => {
+    .map((item, i) => {
       return `<div class="${name}" data-id="${item.id}">
            <div class="${name}__container"><div class="${name}__img"><img src="${thumbnail(
         item.volumeInfo
@@ -33,6 +34,7 @@ export function renderBooks(items, name = 'book', descr = false, modal = false, 
                   ? ` <p class="${name}__description">${isDescr(item.volumeInfo.description)}</p>`
                   : ''
               }
+              ${obj.length !== 0 ? obj[i].createBtn(name) : ''}
               </div>`;
     })
     .join('');

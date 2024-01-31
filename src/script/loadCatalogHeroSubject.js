@@ -1,12 +1,20 @@
 import { fetchGenre } from './booksAPI';
 import { renderBooks } from './renderBooks';
+import { objBook } from './localList';
 
 const genreEl = document.querySelector('.hero__wrapper--genre');
 const genreBtnEl = document.querySelector('.category');
 let activeСurrentBtnEl = genreBtnEl.querySelector('.category__btn.active');
 
 fetchGenre('liebe').then(data => {
-  genreEl.innerHTML = renderBooks(data, 'genre', true);
+  const obj_book = [];
+  data.map(el => obj_book.push(new objBook(el)));
+
+  console.log(obj_book);
+
+  genreEl.innerHTML = renderBooks(data, 'genre', true, false, obj_book);
+
+  obj_book.forEach(element => element.addEvent());
 });
 
 genreBtnEl.addEventListener('click', renderCategory);
