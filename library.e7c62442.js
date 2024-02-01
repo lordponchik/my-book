@@ -1,11 +1,11 @@
-!function(){var t,e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},n={},i={},r=e.parcelRequire78ed;null==r&&((r=function(t){if(t in n)return n[t].exports;if(t in i){var e=i[t];delete i[t];var r={id:t,exports:{}};return n[t]=r,e.call(r.exports,r,r.exports),r.exports}var o=Error("Cannot find module '"+t+"'");throw o.code="MODULE_NOT_FOUND",o}).register=function(t,e){i[t]=e},e.parcelRequire78ed=r),r.register,r("ahE03");var o=r("hrCnj"),a=r("kP8Kb");let s=document.querySelector(".hero__wrapper--genre"),u=document.querySelector(".category"),c=u.querySelector(".category__btn.active");(0,o.fetchGenre)("liebe").then(t=>{s.innerHTML=(0,a.renderBooks)(t,"genre",!0)}),u.addEventListener("click",function(t){if("BUTTON"!==t.target.nodeName)return;c.classList.remove("active");let e=t.target;e.classList.add("active"),c=e,s.innerHTML="",(0,o.fetchGenre)(t.target.getAttribute("data-name")).then(t=>{s.innerHTML=(0,a.renderBooks)(t,"genre",!0)})});var o=r("hrCnj"),l=r("hAqfH"),p={};window,p=/******/function(t){/******/// The module cache
+var t="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},e={},n={},i=t.parcelRequire78ed;null==i&&((i=function(t){if(t in e)return e[t].exports;if(t in n){var i=n[t];delete n[t];var o={id:t,exports:{}};return e[t]=o,i.call(o.exports,o,o.exports),o.exports}var r=Error("Cannot find module '"+t+"'");throw r.code="MODULE_NOT_FOUND",r}).register=function(t,e){n[t]=e},t.parcelRequire78ed=i),(0,i.register)("fb9GJ",function(t,e){window,t.exports=/******/function(t){/******/// The module cache
 /******/var e={};/******//******/// The require function
 /******/function n(i){/******//******/// Check if module is in cache
 /******/if(e[i])/******/return e[i].exports;/******/// Create a new module (and put it into the cache)
-/******/var r=e[i]={/******/i:i,/******/l:!1,/******/exports:{}};/******//******/// Return the exports of the module
+/******/var o=e[i]={/******/i:i,/******/l:!1,/******/exports:{}};/******//******/// Return the exports of the module
 /******/return(/******//******/// Execute the module function
-/******/t[i].call(r.exports,r,r.exports,n),/******//******/// Flag the module as loaded
-/******/r.l=!0,r.exports);/******/}/******//******//******/// Load entry module and return exports
+/******/t[i].call(o.exports,o,o.exports,n),/******//******/// Flag the module as loaded
+/******/o.l=!0,o.exports);/******/}/******//******//******/// Load entry module and return exports
 /******/return(/******//******//******/// expose the modules object (__webpack_modules__)
 /******/n.m=t,/******//******/// expose the module cache
 /******/n.c=e,/******//******/// define getter function for harmony exports
@@ -15,7 +15,7 @@
 /******/// mode & 2: merge all properties of value into the ns
 /******/// mode & 4: return value when already ns object
 /******/// mode & 8|1: behave like require
-/******/n.t=function(t,e){/******/if(1&e&&(t=n(t)),8&e||4&e&&"object"==typeof t&&t&&t.__esModule)return t;/******/var i=Object.create(null);/******/if(/******/n.r(i),/******/Object.defineProperty(i,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)n.d(i,r,(function(e){return t[e]}).bind(null,r));/******/return i;/******/},/******//******/// getDefaultExport function for compatibility with non-harmony modules
+/******/n.t=function(t,e){/******/if(1&e&&(t=n(t)),8&e||4&e&&"object"==typeof t&&t&&t.__esModule)return t;/******/var i=Object.create(null);/******/if(/******/n.r(i),/******/Object.defineProperty(i,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(i,o,(function(e){return t[e]}).bind(null,o));/******/return i;/******/},/******//******/// getDefaultExport function for compatibility with non-harmony modules
 /******/n.n=function(t){/******/var e=t&&t.__esModule?/******/function(){return t.default}:/******/function(){return t};/******/return /******/n.d(e,"a",e),e;/******/},/******//******/// Object.prototype.hasOwnProperty.call
 /******/n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},/******//******/// __webpack_public_path__
 /******/n.p="dist",n(n.s=10));/******/}([/* 0 *//***/function(t,e,n){t.exports=/**
@@ -29,7 +29,7 @@
  * @param {...object} objects - Objects as sources
  * @returns {object} Extended object
  * @memberof module:object
- */function(t,e){var n,i,r,o,a=Object.prototype.hasOwnProperty;for(r=1,o=arguments.length;r<o;r+=1)for(i in n=arguments[r])a.call(n,i)&&(t[i]=n[i]);return t};/***/},/* 1 *//***/function(t,e,n){t.exports=/**
+ */function(t,e){var n,i,o,r,s=Object.prototype.hasOwnProperty;for(o=1,r=arguments.length;o<r;o+=1)for(i in n=arguments[o])s.call(n,i)&&(t[i]=n[i]);return t};/***/},/* 1 *//***/function(t,e,n){t.exports=/**
  * @fileoverview Check whether the given variable is undefined or not.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  *//**
@@ -51,7 +51,7 @@
  */function(t){return t instanceof Array};/***/},/* 3 *//***/function(t,e,n){/**
  * @fileoverview Execute the provided callback once for each property of object(or element of array) which actually exist.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(2),r=n(17),o=n(6);t.exports=/**
+ */var i=n(2),o=n(17),r=n(6);t.exports=/**
  * @module collection
  *//**
  * Execute the provided callback once for each property of object(or element of array) which actually exist.
@@ -80,7 +80,7 @@
  * forEach(array, function(value){
  *     sum += value;
  * });
- */function(t,e,n){i(t)?r(t,e,n):o(t,e,n)};/***/},/* 4 *//***/function(t,e,n){t.exports=/**
+ */function(t,e,n){i(t)?o(t,e,n):r(t,e,n)};/***/},/* 4 *//***/function(t,e,n){t.exports=/**
  * @fileoverview Check whether the given variable is a string or not.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  *//**
@@ -126,7 +126,7 @@
  * This module provides a function to make a constructor
  * that can inherit from the other constructors like the CLASS easily.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(18),r=n(0);t.exports=/**
+ */var i=n(18),o=n(0);t.exports=/**
  * @module defineClass
  *//**
  * Help a constructor to be defined and to inherit from the other constructors
@@ -167,7 +167,7 @@
  * var childInstance = new Child();
  * childInstance.method();
  * childInstance.childMethod();
- */function(t,e){var n;return e||(e=t,t=null),n=e.init||function(){},t&&i(n,t),e.hasOwnProperty("static")&&(r(n,e.static),delete e.static),r(n.prototype,e),n};/***/},/* 8 *//***/function(t,e,n){/* eslint-disable complexity *//**
+ */function(t,e){var n;return e||(e=t,t=null),n=e.init||function(){},t&&i(n,t),e.hasOwnProperty("static")&&(o(n,e.static),delete e.static),o(n.prototype,e),n};/***/},/* 8 *//***/function(t,e,n){/* eslint-disable complexity *//**
  * @fileoverview Returns the first index at which a given element can be found in the array.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  */var i=n(2);t.exports=/**
@@ -188,7 +188,7 @@
  * var arr = ['one', 'two', 'three', 'four'];
  * var idx1 = inArray('one', arr, 3); // -1
  * var idx2 = inArray('one', arr); // 0
- */function(t,e,n){var r,o;if(n=n||0,!i(e))return -1;if(Array.prototype.indexOf)return Array.prototype.indexOf.call(e,t,n);for(o=e.length,r=n;n>=0&&r<o;r+=1)if(e[r]===t)return r;return -1};/***/},/* 9 *//***/function(t,e,n){var i=n(29),r=n(30),o=n(5);t.exports={/**
+ */function(t,e,n){var o,r;if(n=n||0,!i(e))return -1;if(Array.prototype.indexOf)return Array.prototype.indexOf.call(e,t,n);for(r=e.length,o=n;n>=0&&o<r;o+=1)if(e[o]===t)return o;return -1};/***/},/* 9 *//***/function(t,e,n){var i=n(29),o=n(30),r=n(5);t.exports={/**
    * Capitalize first letter
    * @param {string} str - String to change
    * @returns {string} Changed string
@@ -202,7 +202,7 @@
    * @param {string|function} tmpl - template
    * @param {Object} context - context
    * @returns {HTMLElement}
-   */createElementByTemplate:function(t,e){var n=document.createElement("div"),r=o(t)?t(e):i(t,e);return n.innerHTML=r,n.firstChild},/**
+   */createElementByTemplate:function(t,e){var n=document.createElement("div"),o=r(t)?t(e):i(t,e);return n.innerHTML=o,n.firstChild},/**
    * Create a new function that, when called, has its this keyword set to the provided value.
    * @param {function} fn A original function before binding
    * @param {*} obj context of function in arguments[0]
@@ -210,15 +210,15 @@
    */bind:function(t,e){var n,i=Array.prototype.slice;return t.bind?t.bind.apply(t,i.call(arguments,1)):(n=i.call(arguments,2),function(){return t.apply(e,n.length?n.concat(i.call(arguments)):arguments)})},/**
    * Send hostname for GA
    * @ignore
-   */sendHostName:function(){r("pagination","UA-129987462-1")}};/***/},/* 10 *//***/function(t,e,n){/**
+   */sendHostName:function(){o("pagination","UA-129987462-1")}};/***/},/* 10 *//***/function(t,e,n){/**
  * @fileoverview The entry file of Pagination components
  * @author NHN. FE Development Lab <dl_javascript@nhn.com>
  */n(11),t.exports=n(12);/***/},/* 11 *//***/function(t,e,n){// extracted by mini-css-extract-plugin
-/***/},/* 12 *//***/function(t,e,n){var i=n(13),r=n(7),o=n(0),a=n(1),s=n(20),u=n(9),c={totalItems:10,itemsPerPage:10,visiblePages:10,page:1,centerAlign:!1,firstItemClassName:"tui-first-child",lastItemClassName:"tui-last-child",usageStatistics:!0},l=r(/** @lends Pagination.prototype */{init:function(t,e){/**
+/***/},/* 12 *//***/function(t,e,n){var i=n(13),o=n(7),r=n(0),s=n(1),a=n(20),u=n(9),c={totalItems:10,itemsPerPage:10,visiblePages:10,page:1,centerAlign:!1,firstItemClassName:"tui-first-child",lastItemClassName:"tui-last-child",usageStatistics:!0},l=o(/** @lends Pagination.prototype */{init:function(t,e){/**
        * Option object
        * @type {object}
        * @private
-       */this._options=o({},c,e),/**
+       */this._options=r({},c,e),/**
        * Current page number
        * @type {number}
        * @private
@@ -226,7 +226,7 @@
        * View instance
        * @type {View}
        * @private
-       */this._view=new s(t,this._options,u.bind(this._onClickHandler,this)),this._paginate(),this._options.usageStatistics&&u.sendHostName()},/**
+       */this._view=new a(t,this._options,u.bind(this._onClickHandler,this)),this._paginate(),this._options.usageStatistics&&u.sendHostName()},/**
      * Set current page
      * @param {number} page - Current page
      * @private
@@ -264,12 +264,12 @@
      * @param {number} page - Page number
      * @returns {object} view data
      * @private
-     */_makeViewData:function(t){var e={},n=this._getLastPage(),i=this._getPageIndex(t),r=this._getPageIndex(n),o=this._getEdge(t);return e.leftPageNumber=o.left,e.rightPageNumber=o.right,e.prevMore=i>1,e.nextMore=i<r,e.page=t,e.currentPageIndex=t,e.lastPage=n,e.lastPageListIndex=n,e},/**
+     */_makeViewData:function(t){var e={},n=this._getLastPage(),i=this._getPageIndex(t),o=this._getPageIndex(n),r=this._getEdge(t);return e.leftPageNumber=r.left,e.rightPageNumber=r.right,e.prevMore=i>1,e.nextMore=i<o,e.page=t,e.currentPageIndex=t,e.lastPage=n,e.lastPageListIndex=n,e},/**
      * Get each edge page
      * @param {object} page - Page number
      * @returns {{left: number, right: number}} Edge page numbers
      * @private
-     */_getEdge:function(t){var e,n,i=this._getLastPage(),r=this._options.visiblePages,o=this._getPageIndex(t);return this._options.centerAlign?(n=(e=Math.max(t-Math.floor(r/2),1))+r-1)>i&&(e=Math.max(i-r+1,1),n=i):(e=(o-1)*r+1,n=Math.min(n=o*r,i)),{left:e,right:n}},/**
+     */_getEdge:function(t){var e,n,i=this._getLastPage(),o=this._options.visiblePages,r=this._getPageIndex(t);return this._options.centerAlign?(n=(e=Math.max(t-Math.floor(o/2),1))+o-1)>i&&(e=Math.max(i-o+1,1),n=i):(e=(r-1)*o+1,n=Math.min(n=r*o,i)),{left:e,right:n}},/**
      * Pagelist click event hadnler
      * @param {?string} buttonType - Button type
      * @param {?number} page - Page number
@@ -280,7 +280,7 @@
      * @example
      * pagination.reset();
      * pagination.reset(100);
-     */reset:function(t){a(t)&&(t=this._options.totalItems),this._options.totalItems=t,this._paginate(1)},/**
+     */reset:function(t){s(t)&&(t=this._options.totalItems),this._options.totalItems=t,this._paginate(1)},/**
      * Move to specific page, redraw list.
      * Before move fire beforeMove event, After move fire afterMove event.
      * @param {Number} targetPage - Target page
@@ -307,7 +307,7 @@
      */getCurrentPage:function(){return this._currentPage||this._options.page}});i.mixin(l),t.exports=l;/***/},/* 13 *//***/function(t,e,n){/**
  * @fileoverview This module provides some functions for custom events. And it is implemented in the observer design pattern.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(0),r=n(14),o=n(4),a=n(16),s=n(2),u=n(5),c=n(3),l=/\s+/g;/**
+ */var i=n(0),o=n(14),r=n(4),s=n(16),a=n(2),u=n(5),c=n(3),l=/\s+/g;/**
  * @class
  * @example
  * // node, commonjs
@@ -359,11 +359,11 @@
  *  name: handler pair object when off()
  * @param {object} ctx - context object to memorize
  * @private
- */p.prototype._memorizeContext=function(t){var e,n;r(t)&&(e=this._safeContext(),(n=this._indexOfContext(t))>-1?e[n][1]+=1:e.push([t,1]))},/**
+ */p.prototype._memorizeContext=function(t){var e,n;o(t)&&(e=this._safeContext(),(n=this._indexOfContext(t))>-1?e[n][1]+=1:e.push([t,1]))},/**
  * Forget supplied context object
  * @param {object} ctx - context object to forget
  * @private
- */p.prototype._forgetContext=function(t){var e,n;r(t)&&(e=this._safeContext(),(n=this._indexOfContext(t))>-1&&(e[n][1]-=1,e[n][1]<=0&&e.splice(n,1)))},/**
+ */p.prototype._forgetContext=function(t){var e,n;o(t)&&(e=this._safeContext(),(n=this._indexOfContext(t))>-1&&(e[n][1]-=1,e[n][1]<=0&&e.splice(n,1)))},/**
  * Bind event handler
  * @param {(string|{name:string, handler:function})} eventName - custom
  *  event name or an object {eventName: handler}
@@ -396,20 +396,20 @@
  * CustomEvents.on({
  *     'play': handler
  * }, myObj);
- */p.prototype.on=function(t,e,n){var i=this;o(t)?c(// [syntax 1, 2]
-t=t.split(l),function(t){i._bindEvent(t,e,n)}):a(t)&&(// [syntax 3, 4]
+ */p.prototype.on=function(t,e,n){var i=this;r(t)?c(// [syntax 1, 2]
+t=t.split(l),function(t){i._bindEvent(t,e,n)}):s(t)&&(// [syntax 3, 4]
 n=e,c(t,function(t,e){i.on(e,t,n)}))},/**
  * Bind one-shot event handlers
  * @param {(string|{name:string,handler:function})} eventName - custom
  *  event name or an object {eventName: handler}
  * @param {function|object} [handler] - handler function or context
  * @param {object} [context] - context for binding
- */p.prototype.once=function(t,e,n){var i=this;if(a(t)){n=e,c(t,function(t,e){i.once(e,t,n)});return}this.on(t,function r(){e.apply(n,arguments),i.off(t,r,n)},n)},/**
+ */p.prototype.once=function(t,e,n){var i=this;if(s(t)){n=e,c(t,function(t,e){i.once(e,t,n)});return}this.on(t,function o(){e.apply(n,arguments),i.off(t,o,n)},n)},/**
  * Splice supplied array by callback result
  * @param {array} arr - array to splice
  * @param {function} predicate - function return boolean
  * @private
- */p.prototype._spliceMatches=function(t,e){var n,i=0;if(s(t))for(n=t.length;i<n;i+=1)!0===e(t[i])&&(t.splice(i,1),n-=1,i-=1)},/**
+ */p.prototype._spliceMatches=function(t,e){var n,i=0;if(a(t))for(n=t.length;i<n;i+=1)!0===e(t[i])&&(t.splice(i,1),n-=1,i-=1)},/**
  * Get matcher for unbind specific handler events
  * @param {function} handler - handler function
  * @returns {function} handler matcher
@@ -425,12 +425,12 @@ n=e,c(t,function(t,e){i.on(e,t,n)}))},/**
  * @param {object} context - context
  * @returns {function} handler, context matcher
  * @private
- */p.prototype._matchHandlerAndContext=function(t,e){var n=this;return function(i){var r=t===i.handler,o=e===i.context,a=r&&o;return a&&n._forgetContext(i.context),a}},/**
+ */p.prototype._matchHandlerAndContext=function(t,e){var n=this;return function(i){var o=t===i.handler,r=e===i.context,s=o&&r;return s&&n._forgetContext(i.context),s}},/**
  * Unbind event by event name
  * @param {string} eventName - custom event name to unbind
  * @param {function} [handler] - handler function
  * @private
- */p.prototype._offByEventName=function(t,e){var n=this,i=u(e),r=n._matchHandler(e);c(t=t.split(l),function(t){var e=n._safeEvent(t);i?n._spliceMatches(e,r):(c(e,function(t){n._forgetContext(t.context)}),n.events[t]=[])})},/**
+ */p.prototype._offByEventName=function(t,e){var n=this,i=u(e),o=n._matchHandler(e);c(t=t.split(l),function(t){var e=n._safeEvent(t);i?n._spliceMatches(e,o):(c(e,function(t){n._forgetContext(t.context)}),n.events[t]=[])})},/**
  * Unbind event by handler function
  * @param {function} handler - handler function
  * @private
@@ -439,7 +439,7 @@ n=e,c(t,function(t,e){i.on(e,t,n)}))},/**
  * @param {object} obj - context or {name: handler} pair object
  * @param {function} handler - handler function
  * @private
- */p.prototype._offByObject=function(t,e){var n,i=this;0>this._indexOfContext(t)?c(t,function(t,e){i.off(e,t)}):o(e)?(n=this._matchContext(t),i._spliceMatches(this._safeEvent(e),n)):u(e)?(n=this._matchHandlerAndContext(e,t),c(this._safeEvent(),function(t){i._spliceMatches(t,n)})):(n=this._matchContext(t),c(this._safeEvent(),function(t){i._spliceMatches(t,n)}))},/**
+ */p.prototype._offByObject=function(t,e){var n,i=this;0>this._indexOfContext(t)?c(t,function(t,e){i.off(e,t)}):r(e)?(n=this._matchContext(t),i._spliceMatches(this._safeEvent(e),n)):u(e)?(n=this._matchHandlerAndContext(e,t),c(this._safeEvent(),function(t){i._spliceMatches(t,n)})):(n=this._matchContext(t),c(this._safeEvent(),function(t){i._spliceMatches(t,n)}))},/**
  * Unbind custom events
  * @param {(string|object|function)} eventName - event name or context or
  *  {name: handler} pair object or handler function
@@ -475,7 +475,7 @@ n=e,c(t,function(t,e){i.on(e,t,n)}))},/**
  *
  * // # 2.8 off the all events
  * CustomEvents.off();
- */p.prototype.off=function(t,e){o(t)?this._offByEventName(t,e):arguments.length?u(t)?this._offByHandler(t):a(t)&&this._offByObject(t,e):(// [syntax 8]
+ */p.prototype.off=function(t,e){r(t)?this._offByEventName(t,e):arguments.length?u(t)?this._offByHandler(t):s(t)&&this._offByObject(t,e):(// [syntax 8]
 this.events={},this.contexts=[])},/**
  * Fire custom event
  * @param {string} eventName - name of custom event
@@ -506,7 +506,7 @@ this.events={},this.contexts=[])},/**
  *     // if true,
  *     // doSomething
  * }
- */p.prototype.invoke=function(t){var e,n,i,r;if(!this.hasListener(t))return!0;for(e=this._safeEvent(t),n=Array.prototype.slice.call(arguments,1),i=0;e[i];){if(!1===(r=e[i]).handler.apply(r.context,n))return!1;i+=1}return!0},/**
+ */p.prototype.invoke=function(t){var e,n,i,o;if(!this.hasListener(t))return!0;for(e=this._safeEvent(t),n=Array.prototype.slice.call(arguments,1),i=0;e[i];){if(!1===(o=e[i]).handler.apply(o.context,n))return!1;i+=1}return!0},/**
  * Return whether at least one of the handlers is registered in the given
  *  event name.
  * @param {string} eventName - Custom event name
@@ -518,7 +518,7 @@ this.events={},this.contexts=[])},/**
  */p.prototype.getListenerLength=function(t){return this._safeEvent(t).length},t.exports=p;/***/},/* 14 *//***/function(t,e,n){/**
  * @fileoverview Check whether the given variable is existing or not.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(1),r=n(15);t.exports=/**
+ */var i=n(1),o=n(15);t.exports=/**
  * Check whether the given variable is existing or not.
  * If the given variable is not null and not undefined, returns true.
  * @param {*} param - Target for checking
@@ -533,7 +533,7 @@ this.events={},this.contexts=[])},/**
  * isExisty({}); //true
  * isExisty(null); //false
  * isExisty(undefined); //false
-*/function(t){return!i(t)&&!r(t)};/***/},/* 15 *//***/function(t,e,n){t.exports=/**
+*/function(t){return!i(t)&&!o(t)};/***/},/* 15 *//***/function(t,e,n){t.exports=/**
  * @fileoverview Check whether the given variable is null or not.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  *//**
@@ -575,7 +575,7 @@ this.events={},this.contexts=[])},/**
  *     sum += value;
  * });
  * alert(sum); // 6
- */function(t,e,n){var i=0,r=t.length;for(n=n||null;i<r&&!1!==e.call(n,t[i],i,t);i+=1);};/***/},/* 18 *//***/function(t,e,n){/**
+ */function(t,e,n){var i=0,o=t.length;for(n=n||null;i<o&&!1!==e.call(n,t[i],i,t);i+=1);};/***/},/* 18 *//***/function(t,e,n){/**
  * @fileoverview Provide a simple inheritance in prototype-oriented.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  */var i=n(19);t.exports=/**
@@ -621,7 +621,7 @@ this.events={},this.contexts=[])},/**
  * @returns {Object}
  * @memberof module:inheritance
  */function(t){function e(){}// eslint-disable-line require-jsdoc
-return e.prototype=t,new e};/***/},/* 20 *//***/function(t,e,n){var i=n(3),r=n(7),o=n(21),a=n(22),s=n(24),u=n(25),c=n(0),l=n(4),p=n(28),f=n(9),h={page:'<a href="#" class="tui-page-btn">{{page}}</a>',currentPage:'<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',moveButton:'<a href="#" class="tui-page-btn tui-{{type}}"><span class="tui-ico-{{type}}">{{type}}</span></a>',disabledMoveButton:'<span class="tui-page-btn tui-is-disabled tui-{{type}}"><span class="tui-ico-{{type}}">{{type}}</span></span>',moreButton:'<a href="#" class="tui-page-btn tui-{{type}}-is-ellip"><span class="tui-ico-ellip">...</span></a>'},g=["first","prev","next","last"],d=["prev","next"],_=r(/** @lends View.prototype */{init:function(t,e,n){/**
+return e.prototype=t,new e};/***/},/* 20 *//***/function(t,e,n){var i=n(3),o=n(7),r=n(21),s=n(22),a=n(24),u=n(25),c=n(0),l=n(4),p=n(28),f=n(9),h={page:'<a href="#" class="tui-page-btn">{{page}}</a>',currentPage:'<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',moveButton:'<a href="#" class="tui-page-btn tui-{{type}}"><span class="tui-ico-{{type}}">{{type}}</span></a>',disabledMoveButton:'<span class="tui-page-btn tui-is-disabled tui-{{type}}"><span class="tui-ico-{{type}}">{{type}}</span></span>',moreButton:'<a href="#" class="tui-page-btn tui-{{type}}-is-ellip"><span class="tui-ico-ellip">...</span></a>'},d=["first","prev","next","last"],g=["prev","next"],_=o(/** @lends View.prototype */{init:function(t,e,n){/**
        * Root element
        * @type {HTMLElement}
        * @private
@@ -652,13 +652,13 @@ return e.prototype=t,new e};/***/},/* 20 *//***/function(t,e,n){var i=n(3),r=n(7
      */_setRootElement:function(t){if(l(t)?t=document.getElementById(t)||document.querySelector(t):t.jquery&&(t=t[0]),!p(t))throw Error("The container element is invalid.");this._containerElement=t},/**
      * Assign move buttons to option
      * @private
-     */_setMoveButtons:function(){i(g,function(t){this._buttons[t]=f.createElementByTemplate(this._template.moveButton,{type:t})},this)},/**
+     */_setMoveButtons:function(){i(d,function(t){this._buttons[t]=f.createElementByTemplate(this._template.moveButton,{type:t})},this)},/**
      * Assign disabled move buttons to option
      * @private
-     */_setDisabledMoveButtons:function(){i(g,function(t){var e="disabled"+f.capitalizeFirstLetter(t);this._buttons[e]=f.createElementByTemplate(this._template.disabledMoveButton,{type:t})},this)},/**
+     */_setDisabledMoveButtons:function(){i(d,function(t){var e="disabled"+f.capitalizeFirstLetter(t);this._buttons[e]=f.createElementByTemplate(this._template.disabledMoveButton,{type:t})},this)},/**
      * Assign more buttons to option
      * @private
-     */_setMoreButtons:function(){i(d,function(t){var e=t+"More";this._buttons[e]=f.createElementByTemplate(this._template.moreButton,{type:t})},this)},/* eslint-enable camelcase *//**
+     */_setMoreButtons:function(){i(g,function(t){var e=t+"More";this._buttons[e]=f.createElementByTemplate(this._template.moreButton,{type:t})},this)},/* eslint-enable camelcase *//**
      * Get container element
      * @returns {HTMLElement} Container element
      * @private
@@ -691,11 +691,11 @@ return e.prototype=t,new e};/***/},/* 20 *//***/function(t,e,n){var i=n(3),r=n(7
      * @param {object} viewData - View data to render pagination
      * @private
      */// eslint-disable-next-line complexity
-_appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;n<=r;n+=1)n===t.page?e=f.createElementByTemplate(this._template.currentPage,{page:n}):(e=f.createElementByTemplate(this._template.page,{page:n}),this._enabledPageElements.push(e)),n!==i||t.prevMore||u(e,this._firstItemClassName),n!==r||t.nextMore||u(e,this._lastItemClassName),this._getContainerElement().appendChild(e)},/**
+_appendPages:function(t){var e,n,i=t.leftPageNumber,o=t.rightPageNumber;for(n=i;n<=o;n+=1)n===t.page?e=f.createElementByTemplate(this._template.currentPage,{page:n}):(e=f.createElementByTemplate(this._template.page,{page:n}),this._enabledPageElements.push(e)),n!==i||t.prevMore||u(e,this._firstItemClassName),n!==o||t.nextMore||u(e,this._lastItemClassName),this._getContainerElement().appendChild(e)},/**
      * Attach click event
      * @param {function} callback - Callback function
      * @private
-     */_attachClickEvent:function(t){a(this._getContainerElement(),"click",function(e){var n,i,r=o(e);s(e),(i=this._getButtonType(r))||(n=this._getPageNumber(r)),t(i,n)},this)},/**
+     */_attachClickEvent:function(t){s(this._getContainerElement(),"click",function(e){var n,i,o=r(e);a(e),(i=this._getButtonType(o))||(n=this._getPageNumber(o)),t(i,n)},this)},/**
      * Get button type to move button elements
      * @param {HTMLElement} targetElement - Each move button element
      * @returns {?string} Button type
@@ -728,17 +728,17 @@ _appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;
  */function(t){return t.target||t.srcElement};/***/},/* 22 *//***/function(t,e,n){/**
  * @fileoverview Bind DOM events
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(4),r=n(3),o=n(23);/**
+ */var i=n(4),o=n(3),r=n(23);/**
  * Bind DOM events
  * @param {HTMLElement} element - element to bind events
  * @param {string} type - events name
  * @param {function} handler - handler function or context for handler method
  * @param {object} [context] context - context for handler method.
  * @private
- */function a(t,e,n,i){var a,s;/**
+ */function s(t,e,n,i){var s,a;/**
      * Event handler
      * @param {Event} e - event object
-     */function u(e){n.call(i||t,e||window.event)}"addEventListener"in t?t.addEventListener(e,u):"attachEvent"in t&&t.attachEvent("on"+e,u),a=o(t,e),s=!1,r(a,function(t){return t.handler!==n||(s=!0,!1)}),s||a.push({handler:n,wrappedHandler:u})}t.exports=/**
+     */function u(e){n.call(i||t,e||window.event)}"addEventListener"in t?t.addEventListener(e,u):"attachEvent"in t&&t.attachEvent("on"+e,u),s=r(t,e),a=!1,o(s,function(t){return t.handler!==n||(a=!0,!1)}),a||s.push({handler:n,wrappedHandler:u})}t.exports=/**
  * Bind DOM events.
  * @param {HTMLElement} element - element to bind events
  * @param {(string|object)} types - Space splitted events names or eventName:handler object
@@ -769,7 +769,7 @@ _appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;
  *  console.log(this.name);
  * }, repository);
  * // Result when you drag a div: "CodeSnippet"
- */function(t,e,n,o){if(i(e)){r(e.split(/\s+/g),function(e){a(t,e,n,o)});return}r(e,function(e,i){a(t,i,e,n)})};/***/},/* 23 *//***/function(t,e,n){/**
+ */function(t,e,n,r){if(i(e)){o(e.split(/\s+/g),function(e){s(t,e,n,r)});return}o(e,function(e,i){s(t,i,e,n)})};/***/},/* 23 *//***/function(t,e,n){/**
  * @fileoverview Get event collection for specific HTML element
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  */var i="_feEventKey";t.exports=/**
@@ -778,7 +778,7 @@ _appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;
  * @param {string} type - event type
  * @returns {array}
  * @private
- */function(t,e){var n,r=t[i];return r||(r=t[i]={}),(n=r[e])||(n=r[e]=[]),n};/***/},/* 24 *//***/function(t,e,n){t.exports=/**
+ */function(t,e){var n,o=t[i];return o||(o=t[i]={}),(n=o[e])||(n=o[e]=[]),n};/***/},/* 24 *//***/function(t,e,n){t.exports=/**
  * @fileoverview Prevent default action
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  *//**
@@ -788,7 +788,7 @@ _appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;
  */function(t){if(t.preventDefault){t.preventDefault();return}t.returnValue=!1};/***/},/* 25 *//***/function(t,e,n){/**
  * @fileoverview Add css class to element
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(3),r=n(8),o=n(26),a=n(27);t.exports=/**
+ */var i=n(3),o=n(8),r=n(26),s=n(27);t.exports=/**
  * domUtil module
  * @module domUtil
  *//**
@@ -796,7 +796,7 @@ _appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;
  * @param {(HTMLElement|SVGElement)} element - target element
  * @param {...string} cssClass - css classes to add
  * @memberof module:domUtil
- */function(t){var e,n=Array.prototype.slice.call(arguments,1),s=t.classList,u=[];if(s){i(n,function(e){t.classList.add(e)});return}(e=o(t))&&(n=[].concat(e.split(/\s+/),n)),i(n,function(t){0>r(t,u)&&u.push(t)}),a(t,u)};/***/},/* 26 *//***/function(t,e,n){/**
+ */function(t){var e,n=Array.prototype.slice.call(arguments,1),a=t.classList,u=[];if(a){i(n,function(e){t.classList.add(e)});return}(e=r(t))&&(n=[].concat(e.split(/\s+/),n)),i(n,function(t){0>o(t,u)&&u.push(t)}),s(t,u)};/***/},/* 26 *//***/function(t,e,n){/**
  * @fileoverview Get HTML element's design classes.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  */var i=n(1);t.exports=/**
@@ -807,12 +807,12 @@ _appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;
  */function(t){return t&&t.className?i(t.className.baseVal)?t.className:t.className.baseVal:""};/***/},/* 27 *//***/function(t,e,n){/**
  * @fileoverview Set className value
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(2),r=n(1);t.exports=/**
+ */var i=n(2),o=n(1);t.exports=/**
  * Set className value
  * @param {(HTMLElement|SVGElement)} element - target element
  * @param {(string|string[])} cssClass - class names
  * @private
- */function(t,e){if(e=(e=i(e)?e.join(" "):e).replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,""),r(t.className.baseVal)){t.className=e;return}t.className.baseVal=e};/***/},/* 28 *//***/function(t,e,n){t.exports=/**
+ */function(t,e){if(e=(e=i(e)?e.join(" "):e).replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,""),o(t.className.baseVal)){t.className=e;return}t.className.baseVal=e};/***/},/* 28 *//***/function(t,e,n){t.exports=/**
  * @fileoverview Check whether the given variable is a instance of HTMLNode or not.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  *//**
@@ -824,56 +824,56 @@ _appendPages:function(t){var e,n,i=t.leftPageNumber,r=t.rightPageNumber;for(n=i;
  */function(t){return"object"==typeof HTMLElement?t&&(t instanceof HTMLElement||!!t.nodeType):!!(t&&t.nodeType)};/***/},/* 29 *//***/function(t,e,n){/**
  * @fileoverview Convert text by binding expressions with context.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(8),r=n(3),o=n(2),a=n(4),s=n(0),u=/{{\s?|\s?}}/g,c=/^[a-zA-Z0-9_@]+\[[a-zA-Z0-9_@"']+\]$/,l=/\[\s?|\s?\]/,p=/^[a-zA-Z_]+\.[a-zA-Z_]+$/,f=/\./,h=/^["']\w+["']$/,g=/"|'/g,d=/^-?\d+\.?\d*$/,_={if:/**
+ */var i=n(8),o=n(3),r=n(2),s=n(4),a=n(0),u=/{{\s?|\s?}}/g,c=/^[a-zA-Z0-9_@]+\[[a-zA-Z0-9_@"']+\]$/,l=/\[\s?|\s?\]/,p=/^[a-zA-Z_]+\.[a-zA-Z_]+$/,f=/\./,h=/^["']\w+["']$/,d=/"|'/g,g=/^-?\d+\.?\d*$/,_={if:/**
  * Helper function for "if". 
  * @param {Array.<string>} exps - array of expressions split by spaces
  * @param {Array.<string>} sourcesInsideBlock - array of sources inside the if block
  * @param {object} context - context
  * @returns {string}
  * @private
- */function(t,e,n){var i,o,a,s,u=(i=[t],o=[],a=0,s=0,// eslint-disable-next-line complexity
-r(e,function(t,n){0===t.indexOf("if")?a+=1:"/if"===t?a-=1:a||0!==t.indexOf("elseif")&&"else"!==t||(i.push("else"===t?["true"]:t.split(" ").slice(1)),o.push(e.slice(s,n)),s=n+1)}),o.push(e.slice(s)),{exps:i,sourcesInsideIf:o}),c=!1,l="";return r(u.exps,function(t,e){return(c=y(t,n))&&(l=x(u.sourcesInsideIf[e],n)),!c}),l},each:/**
+ */function(t,e,n){var i,r,s,a,u=(i=[t],r=[],s=0,a=0,// eslint-disable-next-line complexity
+o(e,function(t,n){0===t.indexOf("if")?s+=1:"/if"===t?s-=1:s||0!==t.indexOf("elseif")&&"else"!==t||(i.push("else"===t?["true"]:t.split(" ").slice(1)),r.push(e.slice(a,n)),a=n+1)}),r.push(e.slice(a)),{exps:i,sourcesInsideIf:r}),c=!1,l="";return o(u.exps,function(t,e){return(c=x(t,n))&&(l=y(u.sourcesInsideIf[e],n)),!c}),l},each:/**
  * Helper function for "each".
  * @param {Array.<string>} exps - array of expressions split by spaces
  * @param {Array.<string>} sourcesInsideBlock - array of sources inside the each block
  * @param {object} context - context
  * @returns {string}
  * @private
- */function(t,e,n){var i=y(t,n),a=o(i)?"@index":"@key",u={},c="";return r(i,function(t,i){u[a]=i,u["@this"]=t,s(n,u),c+=x(e.slice(),n)}),c},with:/**
+ */function(t,e,n){var i=x(t,n),s=r(i)?"@index":"@key",u={},c="";return o(i,function(t,i){u[s]=i,u["@this"]=t,a(n,u),c+=y(e.slice(),n)}),c},with:/**
  * Helper function for "with ... as"
  * @param {Array.<string>} exps - array of expressions split by spaces
  * @param {Array.<string>} sourcesInsideBlock - array of sources inside the with block
  * @param {object} context - context
  * @returns {string}
  * @private
- */function(t,e,n){var r=i("as",t),o=t[r+1],a=y(t.slice(0,r),n),u={};return u[o]=a,x(e,s(n,u))||""}},v=3==="a".split(/a/).length?function(t,e){return t.split(e)}:function(t,e){var n,i,r=[],o=0;for(e.global||(e=RegExp(e,"g")),n=e.exec(t);null!==n;)i=n.index,r.push(t.slice(o,i)),o=i+n[0].length,n=e.exec(t);return r.push(t.slice(o)),r};/**
+ */function(t,e,n){var o=i("as",t),r=t[o+1],s=x(t.slice(0,o),n),u={};return u[r]=s,y(e,a(n,u))||""}},v=3==="a".split(/a/).length?function(t,e){return t.split(e)}:function(t,e){var n,i,o=[],r=0;for(e.global||(e=RegExp(e,"g")),n=e.exec(t);null!==n;)i=n.index,o.push(t.slice(r,i)),r=i+n[0].length,n=e.exec(t);return o.push(t.slice(r)),o};/**
  * Find value in the context by an expression.
  * @param {string} exp - an expression
  * @param {object} context - context
  * @returns {*}
  * @private
  */// eslint-disable-next-line complexity
-function m(t,e){var n,i=e[t];return"true"===t?i=!0:"false"===t?i=!1:h.test(t)?i=t.replace(g,""):c.test(t)?i=m((n=t.split(l))[0],e)[m(n[1],e)]:p.test(t)?i=m((n=t.split(f))[0],e)[n[1]]:d.test(t)&&(i=parseFloat(t)),i}/**
+function m(t,e){var n,i=e[t];return"true"===t?i=!0:"false"===t?i=!1:h.test(t)?i=t.replace(d,""):c.test(t)?i=m((n=t.split(l))[0],e)[m(n[1],e)]:p.test(t)?i=m((n=t.split(f))[0],e)[n[1]]:g.test(t)&&(i=parseFloat(t)),i}/**
  * Helper function for "custom helper".
  * If helper is not a function, return helper itself.
  * @param {Array.<string>} exps - array of expressions split by spaces (first element: helper)
  * @param {object} context - context
  * @returns {string}
  * @private
- */function y(t,e){var n,i,o=m(t[0],e);return o instanceof Function?(n=t.slice(1),i=[],r(n,function(t){i.push(m(t,e))}),o.apply(null,i)):o}/**
+ */function x(t,e){var n,i,r=m(t[0],e);return r instanceof Function?(n=t.slice(1),i=[],o(n,function(t){i.push(m(t,e))}),r.apply(null,i)):r}/**
  * Get a result of compiling an expression with the context.
  * @param {Array.<string>} sources - array of sources split by regexp of expression.
  * @param {object} context - context
  * @returns {Array.<string>} - array of sources that bind with its context
  * @private
- */function x(t,e){for(var n,i,r,o=1,s=t[1];a(s);)_[i=(n=s.split(" "))[0]]?(r=/**
+ */function y(t,e){for(var n,i,o,r=1,a=t[1];s(a);)_[i=(n=a.split(" "))[0]]?(o=/**
  * Handle block helper function
  * @param {string} helperKeyword - helper keyword (ex. if, each, with)
  * @param {Array.<string>} sourcesToEnd - array of sources after the starting block
  * @param {object} context - context
  * @returns {Array.<string>}
  * @private
- */function(t,e,n){for(var i,r,o,s=_[t],u=1,c=2,l=e[2];u&&a(l);)0===l.indexOf(t)?u+=1:0===l.indexOf("/"+t)&&(u-=1,o=c),c+=2,l=e[c];if(u)throw Error(t+" needs {{/"+t+"}} expression.");return e[0]=s(e[0].split(" ").slice(1),(i=o,(r=e.splice(1,i-0)).pop(),r),n),e}(i,t.splice(o,t.length-o),e),t=t.concat(r)):t[o]=y(n,e),o+=2,s=t[o];return t.join("")}t.exports=/**
+ */function(t,e,n){for(var i,o,r,a=_[t],u=1,c=2,l=e[2];u&&s(l);)0===l.indexOf(t)?u+=1:0===l.indexOf("/"+t)&&(u-=1,r=c),c+=2,l=e[c];if(u)throw Error(t+" needs {{/"+t+"}} expression.");return e[0]=a(e[0].split(" ").slice(1),(i=r,(o=e.splice(1,i-0)).pop(),o),n),e}(i,t.splice(r,t.length-r),e),t=t.concat(o)):t[r]=x(n,e),r+=2,a=t[r];return t.join("")}t.exports=/**
  * Convert text by binding expressions with context.
  * <br>
  * If expression exists in the context, it will be replaced.
@@ -927,17 +927,17 @@ function m(t,e){var n,i=e[t];return"true"===t?i=!0:"false"===t?i=!1:h.test(t)?i=
  * 
  * var result = template(source, context);
  * console.log(result); // <h1>Date: 2019-11-25</h1><p>1: Clean the room</p><p>2: Wash the dishes</p>
- */function(t,e){return x(v(t,u),e)};/***/},/* 30 *//***/function(t,e,n){/**
+ */function(t,e){return y(v(t,u),e)};/***/},/* 30 *//***/function(t,e,n){/**
  * @fileoverview Send hostname on DOMContentLoaded.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
- */var i=n(1),r=n(31);t.exports=/**
+ */var i=n(1),o=n(31);t.exports=/**
  * Send hostname on DOMContentLoaded.
  * To prevent hostname set tui.usageStatistics to false.
  * @param {string} appName - application name
  * @param {string} trackingId - GA tracking ID
  * @ignore
- */function(t,e){var n=location.hostname,o="TOAST UI "+t+" for "+n+": Statistics",a=window.localStorage.getItem(o);// skip if the flag is defined and is set to false explicitly
-(i(window.tui)||!1!==window.tui.usageStatistics)&&(!a||new Date().getTime()-a>6048e5)&&(window.localStorage.setItem(o,new Date().getTime()),setTimeout(function(){("interactive"===document.readyState||"complete"===document.readyState)&&r("https://www.google-analytics.com/collect",{v:1,t:"event",tid:e,cid:n,dp:n,dh:t,el:t,ec:"use"})},1e3))};/***/},/* 31 *//***/function(t,e,n){/**
+ */function(t,e){var n=location.hostname,r="TOAST UI "+t+" for "+n+": Statistics",s=window.localStorage.getItem(r);// skip if the flag is defined and is set to false explicitly
+(i(window.tui)||!1!==window.tui.usageStatistics)&&(!s||new Date().getTime()-s>6048e5)&&(window.localStorage.setItem(r,new Date().getTime()),setTimeout(function(){("interactive"===document.readyState||"complete"===document.readyState)&&o("https://www.google-analytics.com/collect",{v:1,t:"event",tid:e,cid:n,dp:n,dh:t,el:t,ec:"use"})},1e3))};/***/},/* 31 *//***/function(t,e,n){/**
  * @fileoverview Request image ping.
  * @author NHN FE Development Lab <dl_javascript@nhn.com>
  */var i=n(6);t.exports=/**
@@ -959,11 +959,6 @@ function m(t,e){var n,i=e[t];return"true"===t?i=!0:"false"===t?i=!1:h.test(t)?i=
  *     dp: 'dp',
  *     dh: 'dh'
  * });
- */function(t,e){var n=document.createElement("img"),r="";return i(e,function(t,e){r+="&"+e+"="+t}),r=r.substring(1),n.src=t+"?"+r,n.style.display="none",document.body.appendChild(n),document.body.removeChild(n),n};/***/}]);let f=document.getElementById("pagination"),h=new((t=p)&&t.__esModule?t.default:t)(f,{totalItems:198,itemsPerPage:33,visiblePages:6,page:1,centerAlign:!1,firstItemClassName:"tui-first-child",lastItemClassName:"tui-last-child",template:{page:'<a href="#" class="tui-page-btn">{{page}}</a>',currentPage:'<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',moveButton:'<a href="#" class="tui-page-btn tui-{{type}}"><span class="tui-ico-{{type}}">{{type}}</span></a>',disabledMoveButton:'<span class="tui-page-btn tui-is-disabled tui-{{type}}"><span class="tui-ico-{{type}}">{{type}}</span></span>',moreButton:'<a href="#" class="tui-page-btn tui-{{type}}-is-ellip"><span class="tui-ico-ellip">...</span></a>'}});var a=r("kP8Kb");let g=document.querySelector(".sect-catalog__wrapper"),d=document.querySelector(".sect-catalog__input"),_=document.querySelector(".sect-catalog__submit"),v="liebe";function m(t){t.preventDefault(),v=`${d.value.split(" ").join("+")}`,g.innerHTML="",(0,o.fetchCatalog)(v).then(t=>{g.innerHTML=(0,a.renderBooks)(t,"catalog"),h.reset()}).catch(t=>{g.innerHTML=`<li style="text-align:center;color: #fff;">OOPS... <br />
-We are very sorry!<br />
-We don\u{2019}t have any results matching your search.</li>`})}g.innerHTML="",(0,o.fetchCatalog)(v).then(t=>{g.innerHTML=(0,a.renderBooks)(t,"catalog")}).catch(t=>{g.innerHTML=`<li style="text-align:center;color: #fff;">OOPS... <br />
-We are very sorry!</li>`}),_.addEventListener("click",m),d.addEventListener("submit",m),g.addEventListener("click",l.modalShow),h.on("afterMove",t=>{let e=(t.page-1)*33;g.innerHTML="",(0,o.fetchCatalog)(v,e).then(t=>{g.innerHTML=(0,a.renderBooks)(t,"catalog")}).catch(t=>{g.innerHTML=`<li style="text-align:center;color: #fff;">OOPS... <br />
-We are very sorry!<br />
-We don\u{2019}t have any results matching your search.</li>`}),window.scrollTo({top:d.getBoundingClientRect().y,left:0,behavior:"smooth"})}),r("3OTDN")}();//# sourceMappingURL=catalog.56af7b6b.js.map
+ */function(t,e){var n=document.createElement("img"),o="";return i(e,function(t,e){o+="&"+e+"="+t}),o=o.substring(1),n.src=t+"?"+o,n.style.display="none",document.body.appendChild(n),document.body.removeChild(n),n};/***/}])});//# sourceMappingURL=library.e7c62442.js.map
 
-//# sourceMappingURL=catalog.56af7b6b.js.map
+//# sourceMappingURL=library.e7c62442.js.map
