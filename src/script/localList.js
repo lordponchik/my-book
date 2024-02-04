@@ -1,7 +1,9 @@
+import { itemsPerPage, pagination } from './loadLibrary';
 import { renderBooks } from './renderBooks';
 
 const LIBRARY_LIST = 'library';
 let temporaryСell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
+const paginationLibrary = pagination;
 
 export class objBook {
   constructor(book) {
@@ -32,7 +34,13 @@ export class objBook {
 
         if (libraryEl !== null) {
           libraryEl.innerHTML = '';
-          libraryEl.innerHTML = renderBooks(temporaryСell, 'library', false, false);
+          libraryEl.innerHTML = renderBooks(
+            temporaryСell.slice(0, itemsPerPage),
+            'library',
+            false,
+            false
+          );
+          paginationLibrary.movePageTo(1);
         }
       } else if (e.currentTarget.textContent === 'remove book from library') {
         temporaryСell.splice(
@@ -47,7 +55,13 @@ export class objBook {
 
         if (libraryEl !== null) {
           libraryEl.innerHTML = '';
-          libraryEl.innerHTML = renderBooks(temporaryСell, 'library', false, false);
+          libraryEl.innerHTML = renderBooks(
+            temporaryСell.slice(0, itemsPerPage),
+            'library',
+            false,
+            false
+          );
+          paginationLibrary.movePageTo(1);
         }
       }
     });
