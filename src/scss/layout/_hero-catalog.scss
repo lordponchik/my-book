@@ -59,14 +59,16 @@
   &:not(:last-child)::after {
     content: '->';
     position: absolute;
-    bottom: 50%;
+    bottom: -10px;
     right: 10px;
 
     display: flex;
     width: 30px;
     height: 30px;
 
-    color: var(--accent-color);
+    font-weight: bold;
+    font-family: sans-serif;
+    color: var(--secondary-text-color);
 
     transform: translateX(0);
     animation: pointerSliderRight 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
@@ -74,14 +76,17 @@
   &:not(:first-child)::before {
     content: '<-';
     position: absolute;
-    bottom: 50%;
+    bottom: -10px;
     left: 10px;
 
     display: flex;
     width: 30px;
     height: 30px;
 
-    color: var(--accent-color);
+    font-weight: bold;
+    font-family: sans-serif;
+
+    color: var(--secondary-text-color);
 
     transform: translateX(0);
     animation: pointerSliderLeft 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
