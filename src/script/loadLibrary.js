@@ -6,15 +6,41 @@ import 'tui-pagination/dist/tui-pagination.css';
 const LIBRARY_LIST = 'library';
 let localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
 const libraryEl = document.querySelector('.loc-library__list');
-
-libraryEl.insertAdjacentHTML('afterend', `<div id="pagination" class="tui-pagination"></div>`);
-
-const container = document.getElementById('pagination');
 export let itemsPerPage = 12;
-export const pagination = new Pagination(container, renderOptionsForPagination(localArr));
+let pagination = null;
 
-if (localArr !== null) {
-  libraryEl.innerHTML = renderBooks(localArr.slice(0, itemsPerPage), 'library', false, false);
+if (libraryEl !== null) {
+  libraryEl.insertAdjacentHTML('afterend', `<div id="pagination" class="tui-pagination"></div>`);
+
+  if (localArr !== null) {
+    libraryEl.innerHTML = renderBooks(localArr.slice(0, itemsPerPage), 'library', false, false);
+  }
+
+  const container = document.getElementById('pagination');
+
+  pagination = new Pagination(container, renderOptionsForPagination(localArr));
+
+  libraryEl.addEventListener('click', modalShow);
+
+  pagination.on('afterMove', event => {
+    let num = (event.page - 1) * itemsPerPage;
+
+    libraryEl.innerHTML = '';
+    localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
+
+    libraryEl.innerHTML = renderBooks(
+      localArr.slice(num, event.page * itemsPerPage),
+      'library',
+      false,
+      false
+    );
+
+    window.scrollTo({
+      top: libraryEl.getBoundingClientRect().y,
+      left: 0,
+      behavior: 'smooth',
+    });
+  });
 }
 
 function renderOptionsForPagination(localArr) {
@@ -44,25 +70,8 @@ function renderOptionsForPagination(localArr) {
     },
   };
 }
-
-libraryEl.addEventListener('click', modalShow);
-
-pagination.on('afterMove', event => {
-  let num = (event.page - 1) * itemsPerPage;
-
-  libraryEl.innerHTML = '';
-  localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
-
-  libraryEl.innerHTML = renderBooks(
-    localArr.slice(num, event.page * itemsPerPage),
-    'library',
-    false,
-    false
-  );
-
-  window.scrollTo({
-    top: libraryEl.getBoundingClientRect().y,
-    left: 0,
-    behavior: 'smooth',
-  });
-});
+export function toPagePagination() {
+  if (pagination !== null) {
+    pagination.movePageTo(1);
+  }
+}

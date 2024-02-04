@@ -10,8 +10,6 @@ fetchGenre('liebe').then(data => {
   const obj_book = [];
   data.map(el => obj_book.push(new objBook(el)));
 
-  console.log(obj_book);
-
   genreEl.innerHTML = renderBooks(data, 'genre', true, false, obj_book);
 
   obj_book.forEach(element => element.addEvent());

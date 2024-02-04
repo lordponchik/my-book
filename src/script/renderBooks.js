@@ -1,5 +1,4 @@
 import svg from '../image/no-image-placeholder.svg';
-import { objBook } from './localList';
 
 export function renderBooks(items, name = 'book', descr = false, modal = false, obj = []) {
   if (modal === true) {

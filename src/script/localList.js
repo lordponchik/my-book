@@ -1,9 +1,8 @@
-import { itemsPerPage, pagination } from './loadLibrary';
+import { itemsPerPage, toPagePagination } from './loadLibrary';
 import { renderBooks } from './renderBooks';
 
 const LIBRARY_LIST = 'library';
 let temporaryСell = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
-const paginationLibrary = pagination;
 
 export class objBook {
   constructor(book) {
@@ -40,7 +39,7 @@ export class objBook {
             false,
             false
           );
-          paginationLibrary.movePageTo(1);
+          toPagePagination();
         }
       } else if (e.currentTarget.textContent === 'remove book from library') {
         temporaryСell.splice(
@@ -61,7 +60,7 @@ export class objBook {
             false,
             false
           );
-          paginationLibrary.movePageTo(1);
+          toPagePagination();
         }
       }
     });
