@@ -62,6 +62,14 @@
 }
 .catalog {
   cursor: pointer;
+  box-shadow: 1px 1px 1px var(--box-shadow-color);
+
+  transition: box-shadow 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  &:hover,
+  &:focus {
+    box-shadow: 1px 1px 1px 1px var(--accent-color);
+  }
 
   @media screen and (max-width: 767px) {
     &:not(:last-child) {
@@ -80,8 +88,6 @@
 .catalog__container {
   display: flex;
   height: 100%;
-
-  box-shadow: 1px 1px 1px var(--box-shadow-color);
 }
 .catalog__img {
   display: contents;
