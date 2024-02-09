@@ -12,7 +12,13 @@ let pagination = null;
 if (libraryEl !== null) {
   libraryEl.insertAdjacentHTML('afterend', `<div id="pagination" class="tui-pagination"></div>`);
 
-  if (localArr !== null) {
+  if (localArr.length === 0) {
+    libraryEl.innerHTML = `<p style="text-align:center;color: var(--secondary-text-color);padding: 35px;
+">Oops... </br> We are very sorry! </br>
+There are no books in the library, add the first one.</p>`;
+  }
+
+  if (localArr !== null && localArr.length !== 0) {
     libraryEl.innerHTML = renderBooks(localArr.slice(0, itemsPerPage), 'library', false, false);
   }
 
@@ -28,12 +34,18 @@ if (libraryEl !== null) {
     libraryEl.innerHTML = '';
     localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
 
-    libraryEl.innerHTML = renderBooks(
-      localArr.slice(num, event.page * itemsPerPage),
-      'library',
-      false,
-      false
-    );
+    if (localArr.length === 0) {
+      libraryEl.innerHTML = `<p style="text-align:center;color: var(--secondary-text-color);padding: 35px;
+">Oops... </br> We are very sorry! </br>
+There are no books in the library, add the first one.</p>`;
+    } else {
+      libraryEl.innerHTML = renderBooks(
+        localArr.slice(num, event.page * itemsPerPage),
+        'library',
+        false,
+        false
+      );
+    }
 
     window.scrollTo({
       top: libraryEl.getBoundingClientRect().y,
@@ -73,5 +85,6 @@ function renderOptionsForPagination(localArr) {
 export function toPagePagination() {
   if (pagination !== null) {
     pagination.movePageTo(1);
+    pagination.reset(JSON.parse(localStorage.getItem(LIBRARY_LIST)).length);
   }
 }
