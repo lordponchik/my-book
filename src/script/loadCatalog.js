@@ -14,8 +14,8 @@ fetchCatalog(search)
     catalogEl.innerHTML = renderBooks(data, 'catalog');
   })
   .catch(error => {
-    catalogEl.innerHTML = `<div style="text-align:center;color: var(--secondary-text-color);">OOPS... <br />
-We are very sorry!</div>`;
+    catalogEl.innerHTML = `<p style="text-align:center;color: var(--secondary-text-color);">OOPS... <br />
+We are very sorry!</p>`;
   });
 
 catalogSubmit.addEventListener('click', renderCatalog);
@@ -32,9 +32,9 @@ function renderCatalog(e) {
       pagination.reset();
     })
     .catch(error => {
-      catalogEl.innerHTML = `<div style="text-align:center;color: var(--secondary-text-color);">OOPS... <br />
+      catalogEl.innerHTML = `<p style="text-align:center;color: var(--secondary-text-color);">OOPS... <br />
 We are very sorry!<br />
-We don’t have any results matching your search.</div>`;
+We don’t have any results matching your search.</p>`;
     });
 }
 
@@ -50,9 +50,9 @@ pagination.on('afterMove', event => {
       catalogEl.innerHTML = renderBooks(data, 'catalog');
     })
     .catch(error => {
-      catalogEl.innerHTML = `<div style="text-align:center;color: var(--secondary-text-color);">OOPS... <br />
+      catalogEl.innerHTML = `<p style="text-align:center;color: var(--secondary-text-color);">OOPS... <br />
 We are very sorry!<br />
-We don’t have any results matching your search.</div>`;
+We don’t have any results matching your search.</p>`;
     });
 
   window.scrollTo({

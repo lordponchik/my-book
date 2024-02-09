@@ -26,7 +26,7 @@ fetchBooksCategory('a+song+of+ice+and+fire')
     addSlider('icefire', 'series');
   })
   .catch(error => {
-    potterEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
+    icefireEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
 We are very sorry!<br />
 We have lost the results from the server, please reload the page</p>`;
   });
@@ -36,7 +36,7 @@ fetchBooksCategory('the+witcher')
     addSlider('witcher', 'series');
   })
   .catch(error => {
-    potterEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
+    witcherEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
 We are very sorry!<br />
 We have lost the results from the server, please reload the page</p>`;
   });
@@ -46,7 +46,7 @@ fetchBooksCategory('the+dark+tower')
     addSlider('dark-tower', 'series');
   })
   .catch(error => {
-    potterEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
+    darkTowerEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
 We are very sorry!<br />
 We have lost the results from the server, please reload the page</p>`;
   });
