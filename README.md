@@ -59,7 +59,7 @@ various technologies when creating websites.
 
 
 <details>
-	<summary>:ukraine: Russian</summary>
+	<summary>:ukraine: UKR</summary>
 
 Сайт для поиска книг и добавления их в свою библиотеку. Создан для улучшения навыков использования
 различных технологий при создании сайтов.
