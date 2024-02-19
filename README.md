@@ -25,7 +25,7 @@ various technologies when creating websites.
 
 ### ✅ Implemented:
 
-#####General:
+*General:*
 
 - added change of site theme;
 - added a button to quickly move to the top of the site;
@@ -33,13 +33,13 @@ various technologies when creating websites.
 - implemented adaptive pages;
 - implemented the opening of a modal window with additional information when clicking on a book;
 
-#####Home:
+*Home:*
 
 - rendering of random books based on four book series;
 - custom animation for book series categories;
 - slider for books in the mobile version of the site;
 
-#####Catalog:
+*Catalog:*
 
 - when entering this page - a render of 10 random books in the .hero section in 5 categories.
 - added a slider for books in the .hero section
@@ -48,7 +48,7 @@ various technologies when creating websites.
 - added the ability to search for books by book title;
 - added pagination for the book catalog;
 
-#####My Library:
+*My Library:*
 
 - in the .hero section, a random book is displayed from the array in the dictionary.json file;
 - a button for updating a random book has been added to the .hero section;
@@ -56,10 +56,10 @@ various technologies when creating websites.
 - added pagination for the book library;
 - the number of pages is updated when books are added or removed from the library page;
 
-:ukraine:
+
 
 <details>
-	<summary>Russian</summary>
+	<summary>:ukraine: UKR</summary>
 
 Сайт для поиска книг и добавления их в свою библиотеку. Создан для улучшения навыков использования
 различных технологий при создании сайтов.
@@ -86,7 +86,7 @@ various technologies when creating websites.
 
 ### ✅ Реализовано:
 
-#####Общее:
+*Общее:*
 
 - смена темы сайта;
 - добавлена кнопка для быстрого перемещения наверх сайта;
@@ -94,13 +94,13 @@ various technologies when creating websites.
 - реализован адаптив страниц;
 - реализовано открытие модального окна с дополнительной информацией при нажатии на книгу;
 
-#####Главная страница:
+*Главная страница:*
 
 - рендер случайных книг по четырем сериям книг;
 - своя анимация для категорий серий книг;
 - слайдер для книг в мобильной версии сайта;
 
-#####Каталог:
+*Каталог:*
 
 - рендер 10 случайных книг в секции .hero по 5 категориям.
 - слайдер для книг в секции .hero
@@ -109,7 +109,7 @@ various technologies when creating websites.
 - возможность поиска книг по наименованию книги;
 - добавлена пагинация для каталога книг;
 
-#####Библиотека:
+*Библиотека:*
 
 - в секции .hero выводится рандомная книга из массива в файле dictionary.json;
 - в секции .hero добавлена кнопка для обновления рандомной книги;
