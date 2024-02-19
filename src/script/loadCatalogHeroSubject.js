@@ -34,7 +34,13 @@ function renderCategory(e) {
 
   fetchGenre(e.target.getAttribute('data-name'))
     .then(data => {
-      genreEl.innerHTML = renderBooks(data, 'genre', true);
+      const obj_book = [];
+
+      data.map(el => obj_book.push(new objBook(el)));
+
+      genreEl.innerHTML = renderBooks(data, 'genre', true, false, obj_book);
+
+      obj_book.forEach(element => element.addEvent());
     })
     .catch(error => {
       genreEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
