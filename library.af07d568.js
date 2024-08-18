@@ -5205,13 +5205,13 @@ var _tuiPagination = require("tui-pagination");
 var _tuiPaginationDefault = parcelHelpers.interopDefault(_tuiPagination);
 var _tuiPaginationCss = require("tui-pagination/dist/tui-pagination.css");
 const LIBRARY_LIST = "library";
-let localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST));
+let localArr = JSON.parse(localStorage.getItem(LIBRARY_LIST)) || [];
 const libraryEl = document.querySelector(".loc-library__list");
 let itemsPerPage = 12;
 let pagination = null;
 if (libraryEl !== null) {
     libraryEl.insertAdjacentHTML("afterend", `<div id="pagination" class="tui-pagination"></div>`);
-    if (localArr.length === 0) libraryEl.innerHTML = `<p style="text-align:center;color: var(--secondary-text-color);padding: 35px;
+    if (localArr === null || localArr.length === 0) libraryEl.innerHTML = `<p style="text-align:center;color: var(--secondary-text-color);padding: 35px;
 ">Oops... </br> We are very sorry! </br>
 There are no books in the library, add the first one.</p>`;
     if (localArr !== null && localArr.length !== 0) libraryEl.innerHTML = (0, _renderBooks.renderBooks)(localArr.slice(0, itemsPerPage), "library", false, false);

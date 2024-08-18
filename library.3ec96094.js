@@ -596,7 +596,7 @@ const randomBtnEl = document.querySelector(".btn-random");
     heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true, obj_book);
     obj_book[0].addEvent();
 }).catch((error)=>{
-    genreEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
+    heroEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
 We are very sorry!<br />
 We have lost the results from the server, please reload the page</p>`;
 });
@@ -609,10 +609,6 @@ randomBtnEl.addEventListener("click", (e)=>{
         heroEl.innerHTML = (0, _renderBooks.renderBooks)(item[0], "random-book", true, true, obj_book);
         obj_book[0].addEvent();
     });
-}).catch((error)=>{
-    genreEl.innerHTML = `<p style="align-self:center;margin:0 auto;text-align:center;color:var(--secondary-text-color);">OOPS... <br />
-We are very sorry!<br />
-We have lost the results from the server, please reload the page</p>`;
 });
 function randomName() {
     return (0, _dictionaryJsonDefault.default)[Math.floor(Math.random() * (0, _dictionaryJsonDefault.default).length)];

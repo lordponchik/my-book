@@ -576,7 +576,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"lVBQ0":[function(require,module,exports) {
 document.querySelector(".switch-theme").querySelector(`.switch-icon__${localStorage.key("theme") === null ? "dark" : localStorage.getItem("theme") === "dark" ? "light" : "dark"}`).classList.add("hidden");
-document.documentElement.setAttribute("data-theme", localStorage.key("theme") === null ? "light" : localStorage.getItem("theme"));
+if (localStorage.key("theme") === null) {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+} else document.documentElement.setAttribute("data-theme", localStorage.getItem("theme"));
 
 },{}]},["9fLEx","lVBQ0"], "lVBQ0", "parcelRequire78ed")
 
